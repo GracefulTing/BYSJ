@@ -48,7 +48,7 @@ a:hover{text-decoration:none;}
     padding:15px 0 0 0;
     /*border:1px solid;*/
 }
-#head .head_con .person div{
+/*#head .head_con .person div{
     width:40px;
     padding:10px 15px;
     border:1px solid;
@@ -59,6 +59,24 @@ a:hover{text-decoration:none;}
 }
 #head .head_con .person .reg{
     display: inline-block;
+}*/
+#head .head_con .person .search{
+    float:left;
+    margin-right:60px;
+    height:45px;
+    line-height:45px;
+}
+#head .head_con .person .search .search-form-input{
+    padding:3px 0 1px 0;
+    margin-right:-2px;
+}
+#head .head_con .person .login,.reg{
+    display: inline-block;
+    font-size:15px;
+    margin-top:10px;
+}
+#head .head_con .person .reg{
+    margin-right:20px;
 }
 .wrap{
     width:1060px;
