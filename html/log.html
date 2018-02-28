@@ -1,0 +1,70 @@
+<!doctype html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>登录</title>
+	<link rel="stylesheet" href="./css/log.css">
+	<script>
+	function validateCode(n){
+		var s="abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";
+		var ret="";
+		for(var i=0;i<n;i++)
+		{
+			var index=Math.floor(Math.random()*62);
+			ret+=s.charAt(index);
+		}
+		return ret;
+	}
+
+	function show(){
+		document.getElementById("msg").innerHTML=validateCode(4);
+	}
+	window.onload=show;
+	</script>
+</head>
+<body bgcolor="pink">
+	<div class="logo">
+		<h1>MyCircle登录</h1>
+	</div>
+	<div class="content">
+		<div class="t">
+			<span class="y">
+				<a href="reg.html">没有帐号？注册</a>
+			</span>
+			<h3>登录</h3>
+		</div>
+		<div class="con">
+			<form action="denglu.php" method="post">
+			<table  cellspacing="8px" width="450px">
+				<tr>
+					<td>用户名:</td>
+					<td><input type="text"  name="username" required="required"></td>
+				</tr>
+				<tr>
+					<td>密码:</td>
+					<td><input type="password" name="password" required="required"></td>
+				</tr>
+				<tr>
+					<td>验证码:</td>
+					<td>
+					<input type="text"  class="text1" name="yanzheng"></input>
+					<span id="msg"></span>
+					<input type="button" value="换一张" onclick="show()" class="button1"></input>
+					</td>
+				</tr>
+				<tr>
+					<td  colspan="2" class="tijiao"><input type="submit" value="登录"  class="submit"></td>
+				</tr>
+			</table>	
+		</form>
+		</div>
+	</div>
+	<div class="footer">
+      <div class="foot">    
+          Copyrights © 2017-2018
+          <a href="">中华养生</a>
+           www.cnys.com, All rights reserved. 
+      </div>
+    </div>
+</body>
+</html>
