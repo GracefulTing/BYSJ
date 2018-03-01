@@ -6,13 +6,25 @@
 	<link rel="stylesheet" href="./css/caipu.css">
 </head>
 <body>
+	<div class="topbar">
+		<div id="topnav" class="topnav">
+			<p>
+				<a href="index.html">Balance</a>
+				<b>|</b>
+				<a href="caipu.html">菜谱</a>
+				<a href="sports.html">运动</a>
+				<a href="psychology.html">心理</a>
+				<a href="communicate.html">交流</a>
+			</p>
+		</div>
+	</div>
 	<div class="head">
 		<div class="headLogo">
 			<a href="" class="logo logo_caipu" title=''></a>
 		</div>
 		<div class="headMenu">
 			<p>
-				<a href="" title="养生菜谱" class='cp'>养生菜谱</a>
+				<!-- <a href="" title="养生菜谱" class='cp'>养生菜谱</a>
 				<a href="" title="家常菜" class='jc'>家常菜</a>
 				<a href="" title="热菜" class='rc'>热菜</a>
 				<a href="" title="蒸菜" class='zc'>蒸菜</a>
@@ -23,14 +35,20 @@
 				<a href="" title="养生粥" class='zou'>养生粥</a>
 				<a href="" title="养生汤" class='soup'>养生汤</a>
 				<a href="" title="养生茶" class='tea'>养生茶</a>
-				<a href="" title="养生酒" class='jiu'>养生酒</a>
+				<a href="" title="养生酒" class='jiu'>养生酒</a> -->
+				<a href="" title="养生菜谱" class='cp'>养生菜谱</a>
+				<a href="#jcc" title="家常菜" class='jc'>家常菜</a>
+				<a href="#zlc" title="蒸菜" class='zc'>蒸菜/凉菜</a>
+				<a href="#zt" title="养生粥" class='zou'>养生粥汤</a>
+				<a href="#xcls" title="养生汤" class='soup'>小吃零食</a>
+				<a href="#drink" title="养生茶" class='tea'>养生饮品</a>
 			</p>
 		</div>
 	</div>
 	<div class="clear15"></div>
 	<div class="content">
 		<div class="con_detail">
-			<div class="tit">
+			<div class="tit" id="jcc">
 				<span></span>
 				<h1>养生家常菜</h1>
 			</div>
@@ -127,7 +145,7 @@
 					<span>人气：2230</span>
 				</li>
 			</ul>
-			<div class="tit">
+			<div class="tit" id="zlc">
 				<span></span>
 				<h1>蒸菜/凉菜</h1>
 			</div>
@@ -179,7 +197,7 @@
 					<span>人气：5591</span>
 				</li>
 			</ul>
-			<div class="tit">
+			<div class="tit" id="zt">
 				<span></span>
 				<h1>养生粥汤</h1>
 			</div>
@@ -231,7 +249,7 @@
 					<span>人气：946</span>
 				</li>
 			</ul>
-			<div class="tit">
+			<div class="tit" id="xcls">
 				<span></span>
 				<h1>小吃零食</h1>
 			</div>
@@ -328,7 +346,7 @@
 					<span>人气：324</span>
 				</li>
 			</ul>
-			<div class="tit">
+			<div class="tit" id="drink">
 				<span></span>
 				<h1>养生饮品</h1>
 			</div>
@@ -436,23 +454,4 @@
 		</div>
 	</div>
 </body>
-<script src="https://cdn.bootcss.com/jquery/3.2.1/jquery.js"></script>
-<!-- <script src='./js/base.js'></script> -->
-<!-- <script>
-	$.ajax({
-	   type: "get",
-	   url: "../php/code/caipu.php",
-	   success: function(data){
-	   		var arr = JSON.parse(data);
-	   		console.log(arr);
-	    	for(var l=0;l<arr.length;l++){
-	    		$(".detail_list").append($("<li class=lis><a><i><img></img></i><h5></h5></a><span></span></li>"));
-	    		console.log(arr[l]);
-	    		$(".detail_list").find("img").attr("src",arr[l].img);
-	    		$(".detail_list").find("h5").html(arr[l].title);
-	    		$(".detail_list").find("li span").html(arr[l].rq);
-	    	}
-	   }
-	});
-</script> -->
 </html>

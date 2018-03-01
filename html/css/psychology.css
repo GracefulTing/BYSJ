@@ -7,6 +7,28 @@ img{border:0;}
 ul,li{list-style-type:none;}
 a{color:black;text-decoration:none;margin:0;padding:0;}
 a:hover{text-decoration:none;}
+.topbar{
+	width:100%;
+	background-color: #333;
+	color:#eee;
+	font-size: 14px;
+	height:34px;
+	line-height: 34px;
+}
+.topbar .topnav{
+	width:1100px;
+	margin:0 auto;
+	color:#ccc;
+}
+.topbar .topnav p a{
+	padding:0 6px;
+	color:#eee;
+	display: inline;
+}
+.topbar .topnav b{
+	color:#666;
+	padding:0 4px;
+}
 .head{
 	width:960px;
 	display: block;
@@ -94,7 +116,27 @@ a:hover{text-decoration:none;}
 .content .con_left .left1{
 	width:610px;
 	height:280px;
-	background:pink;
+	position: relative;
+}
+.content .con_left .left1 img{
+	width:610px;
+	height:280px;
+}
+.content .con_left .left1 .fu{
+	position: absolute;
+	height:50px;
+	background:url(../img/ico_tm.png) repeat;
+	width:100%;
+	left:0;
+	bottom:0;
+}
+.content .con_left .left1 .fu h2{
+	line-height: 50px;
+	padding:0 10px;
+}
+.content .con_left .left1 .fu h2 a{
+	color:#fff;
+	font-size:16px;
 }
 .content .con_left .hotNav{
 	height:34px;
@@ -118,6 +160,10 @@ h3{
 }
 .content .con_left .hotNav span a{
 	color:#b8b8b8;
+	font-size: 12px;
+}
+.content .con_left .hotNav span a:hover{
+	text-decoration: underline;
 }
 .content .con_left .lists li{
 	background:url(../img/xx.jpg) repeat-x left bottom;
@@ -131,12 +177,20 @@ h3{
 	color:#606060;
 	font-size:16px;
 }
+.content .con_left .lists li h3 a:hover{
+	text-decoration: underline;
+	color:#f19100;
+}
 .content .con_left .lists li p{
 	color:#777;
 	padding:0 5px 18px;
+	font-size:12px;
 }
 .content .con_left .lists li p a{
 	color:#07793e;
+}
+.content .con_left .lists li p a:hover{
+	text-decoration: underline;
 }
 .content .con_left .con_lists li{
 	border-bottom: 1px solid #dddddd;
@@ -162,18 +216,25 @@ h3{
 .content .con_left .con_lists li .details h4 a{
 	font-size:16px;
 }
+.content .con_left .con_lists li .details h4 a:hover{
+	color:#f19100;
+}
 .content .con_left .con_lists li .details .listNav{
 	margin:5px 3px;
 }
 .content .con_left .con_lists li .details .listNav a{;
 	margin:7px 0 10px;
 	color:#07793e;
-	font-size:14px;
+	font-size:13px;
 	margin-right:8px;
+}
+.content .con_left .con_lists li .details .listNav a:hover{
+	text-decoration: underline;
 }
 .content .con_left .con_lists li .details p{
 	color:#888;
-	line-height: 1.6;
+	line-height: 2;
+	font-size:12px;
 }
 .clearfix{
 	display: block;
@@ -222,6 +283,10 @@ h3{
 	background: url(../img/listxin.png) no-repeat 8px -33px;
 	padding-left: 25px;
 }
+.content .con_right .rcon .listxin li a:hover{
+	color:#f19100;
+	background:url(../img/listxin.png) no-repeat 8px 4px;
+}
 .content .con_right .rcon .job{
 	padding:5px 0 0 15px;
 	overflow: hidden;
@@ -243,8 +308,11 @@ h3{
 	line-height: 38px;
 	overflow: hidden;
 }
+.content .con_right .rcon .job li p a:hover{
+	text-decoration: underline;
+}
 .content .con_right .rcon .hunlian{
-	padding:5px 0 5px 13px;
+	padding:5px 0 30px 13px;
 	list-style: none;
 }
 .content .con_right .rcon .hunlian li{
@@ -263,6 +331,10 @@ h3{
 	line-height: 18px;
 	overflow: hidden;
 	margin:7px 0 10px 0;
+}
+.content .con_right .rcon .hunlian h4 a:hover{
+	color:#f19100;
+	text-decoration: underline;
 }
 .content .con_right .rcon .hunlian p{
 	color:#777;
@@ -301,6 +373,9 @@ h3{
 	color:#fff;
 	font-size:14px;
 	font-weight:bold;
+}
+.content .con_right .rcon .o2 h4 a:hover{
+	text-decoration: underline;
 }
 .rtop{
 	background: url(../img/main.png) no-repeat left -244px;

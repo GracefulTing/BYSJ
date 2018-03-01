@@ -60,6 +60,9 @@ a:hover{text-decoration:none;}
 #head .head_con .person .reg{
     display: inline-block;
 }*/
+#head .head_con .person a:hover{
+    color:red;
+}
 #head .head_con .person .search{
     float:left;
     margin-right:60px;
