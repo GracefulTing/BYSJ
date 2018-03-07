@@ -22,7 +22,8 @@ a:hover{text-decoration:none;}
 #head .logo{
     width:175px;
     height:70px;
-    background:url("../img/logo.png") no-repeat 5px 10px;
+    /*background: url("../img/blogo.jpg") no-repeat 5px 10px;*/
+    /*background:url("../img/logo.png") no-repeat 5px 10px;*/
     border:1px solid red;
     float:left;
 }
@@ -60,7 +61,7 @@ a:hover{text-decoration:none;}
 #head .head_con .person .reg{
     display: inline-block;
 }*/
-#head .head_con .person a:hover{
+#head .head_con .person>a:hover{
     color:red;
 }
 #head .head_con .person .search{
@@ -68,10 +69,7 @@ a:hover{text-decoration:none;}
     margin-right:60px;
     height:45px;
     line-height:45px;
-}
-#head .head_con .person .search .search-form-input{
-    padding:3px 0 1px 0;
-    margin-right:-2px;
+    margin-top:5px;    
 }
 #head .head_con .person .login,.reg{
     display: inline-block;
@@ -574,4 +572,82 @@ dt,dd{
     line-height:24px;
     text-align:center;
     color:#999;
+}
+.back{
+    position: fixed;
+    left:50%;
+    margin-left:550px;
+    bottom:75px;
+    display: none;
+}
+.icon_back{
+    display: inline-block;
+    width:50px;
+    height:50px;
+    background:#1bbc9b;
+    text-align: center;
+    font-size:35px;
+    line-height:60px;
+    color:white;
+}
+.wyInput {
+  width: 220px;
+  border-radius: 5px;
+  position: relative;
+}
+.wyInput .wyinput-group {
+  width: 100%;
+  height: 30px;
+  overflow: hidden;
+}
+.wyInput .wyinput-group input {
+  width: 75%;
+  height: 28px;
+  line-height: 28px;
+  border: 1px solid #B4B3AE;
+  float: left;
+  border-top-left-radius: 5px;
+  border-bottom-left-radius: 5px;
+  padding: 0 5px;
+}
+.wyInput .wyinput-group a {
+  float: left;
+  width: 16%;
+  background: #219FB6;
+  color: #fff;
+  height: 30px;
+  line-height: 30px;
+  font-size: 13px;
+  font-weight: bold;
+  text-decoration: none;
+  text-align: center;
+  border-top-right-radius: 5px;
+  border-bottom-right-radius: 5px;
+}
+.wyInput .wyinput-group a:hover {
+  background: #35ACC1;
+}
+.wyInput .wyinput-drop {
+  position: absolute;
+  top: 40px;
+  z-index: 1000;
+  background: #F2F2F2;
+  border: 1px solid #EEE4D8;
+  border-top-color: transparent;
+  border-bottom-left-radius: 5px;
+  border-bottom-right-radius: 5px;
+  padding: 5px 5px;
+}
+.wyInput .wyinput-drop p a {
+  text-decoration: none;
+  color: #333;
+  font-size: 14px;
+  width: 100%;
+  height: 24px;
+  line-height: 24px;
+  display: block;
+}
+.wyInput .wyinput-drop p a:hover {
+  color: #fff;
+  background: #35ACC1;
 }

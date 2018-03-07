@@ -4,7 +4,7 @@
 	<meta charset="UTF-8">
 	<title></title>
 	<link rel="stylesheet" href="./css/sports.css">
-	<link rel="stylesheet" href="./css/page.css">
+	<link rel="stylesheet" href="./css/laypage.css">
 </head>
 <body>
 	<div class="topbar">
@@ -91,8 +91,8 @@
 				<span class="news_span1">2017-08-22</span>
 			</div> -->
 			</div>
-			<ul class="page" id="pageBtn"></ul>
-			<!-- <div id="pages"></div> -->
+			<ul id="biuuu_city_list"></ul>
+			<div id="biuuu_city"></div>
 		</div>
 		<div class="con_right">
 			<div class="hot_tit">
@@ -205,18 +205,24 @@
 				</ul>
 			</div>
 		</div>
+		<!-- 回到顶部 -->
+		<div class="back">
+			<a href="">
+				<div class="icon_back">^</div>
+			</a>
+		</div>
 	</div>
 	<div class="clear15"></div>
 	<div class="footer">
 		<div class="foot">		
 			Copyrights © 2017-2018
-			<a href="">中华养生</a>
-			 www.cnys.com, All rights reserved. 
+			<a href="">Balance</a>
+			 www.balance.com, All rights reserved. 
 		</div>
 	</div>
 </body>
-<script src="./js/page.js"></script>
 <script src="https://cdn.bootcss.com/jquery/3.2.1/jquery.js"></script>
+<script src="./js/laypage.js"></script>
 <script>
 	$.ajax({
 	   type: "get",
@@ -226,33 +232,61 @@
 	   		// console.log(arr);
 	   
 	   		var dataArr = arr[0].data;
-	    	for(var l=0;l<dataArr.length;l++){
-	    		var tags = dataArr[l].tag;
-	    		var news = $("<div class=news><a><img src="+ dataArr[l].img +"></a><div class=news_tit><h4><a href='' title=" + dataArr[l].tit +">"+ dataArr[l].tit +"</a></h4><em><img src='./img/icon3.png'></em><div class=clear></div></div><p>"+ dataArr[l].detail +"</p><span class=tags>标签:<a>"+ tags +"</a></span><span class=news_span1>"+ dataArr[l].date +"</span></div>");
-	    		$(".content .con_left #con").append(news);
-	    	}
+	    	// for(var l=0;l<dataArr.length;l++){
+	    	// 	var tags = dataArr[l].tag;
+	    	// 	var news = $("<div class=news><a><img src="+ dataArr[l].img +"></a><div class=news_tit><h4><a href='' title=" + dataArr[l].tit +">"+ dataArr[l].tit +"</a></h4><em><img src='./img/icon3.png'></em><div class=clear></div></div><p>"+ dataArr[l].detail +"</p><span class=tags>标签:<a>"+ tags +"</a></span><span class=news_span1>"+ dataArr[l].date +"</span></div>");
+	    	// 	$(".content .con_left #con").append(news);
+	    	// }
 
 
-	    	// 分页有问题
-	  //   	var con = $("#con");
-	  //   	options = {
-			// 	"id":"pagebtn",     //放置按钮
-			// 	"data":dataArr,         //数据
-			// 	"maxshowpageitem":3,       //最多显示的页码个数
-			// 	"pagelistcount":4,        //每页数据的个数
-			// 	"callBack":function(arr){
-			// 		con.html('');
-			// 		var cont = '';
-			// 		for(var l=0;l<dataArr.length;l++){
-			// 			var tags = dataArr[l].tag;
-			// 			// cont += "<div class=news><a><img src="+ dataArr[l].img +"></a><div class=news_tit><h4><a href='' title=" + dataArr[l].tit +">"+ dataArr[l].tit +"</a></h4><em><img src='./img/icon3.png'></em><div class=clear></div></div><p>"+ dataArr[l].detail +"</p><span class=tags>标签:<a>"+ tags +"</a></span><span class=news_span1>"+ dataArr[l].date +"</span></div>";
-			// 			cont +=  "<div>" + dataArr[l].tit + "</div>";
-			// 		}
-			// 		con.append(cont);
-			// 	}
-			// };
-			// page.init(dataArr.length,1,options); //数据长度,当前页
+	    	var nums = 8; //每页出现的数量
+			var pages = Math.ceil(dataArr.length/nums); //得到总页数
+
+			var thisDate = function(curr){
+				$("#con").html("");
+			    last = curr*nums - 1;
+			    last = last >= dataArr.length ? (dataArr.length-1) : last;
+			    for(var l = (curr*nums - nums); l <= last; l++){
+			        var tags = dataArr[l].tag;
+		    		var news = $("<div class=news><a><img src="+ dataArr[l].img +"></a><div class=news_tit><h4><a href='' title=" + dataArr[l].tit +">"+ dataArr[l].tit +"</a></h4><em><img src='./img/icon3.png'></em><div class=clear></div></div><p>"+ dataArr[l].detail +"</p><span class=tags>标签:<a>"+ tags +"</a></span><span class=news_span1>"+ dataArr[l].date +"</span></div>");
+		    		$(".content .con_left #con").append(news);
+				}
+			};
+
+			//调用分页
+			laypage({
+			    cont: 'biuuu_city',
+			    pages: pages,
+			    jump: function(obj){
+			        document.getElementById('biuuu_city_list').innerHTML = thisDate(obj.curr);
+			    }
+			})
+
+			$("#biuuu_city").css({"text-align":"center","padding":"15px"});
+			if($("#biuuu_city_list").html() == 'undefined'){
+				$("#biuuu_city_list").hide();
+			}
 	   }
 	});
+
+	//回到顶部
+    var back = document.querySelector('.back');
+	window.onscroll  = function(){
+		var current = document.body.scrollTop || document.documentElement.scrollTop || window.pageYOffset;
+		if(current > 0){
+			back.style.display = 'block';
+		}else{
+			back.style.display = 'none';
+		}
+	}
+	back.onclick = function(){
+		if(document.body.scrollTop){
+			document.body.scrollTop = 0;
+		}else if(document.documentElement.scrollTop){
+			document.documentElement.scrollTop = 0;
+		}else{
+			window.pageYOffset = 0;
+		}
+	}
 </script>
 </html>

@@ -4,6 +4,7 @@
 	<meta charset="UTF-8">
 	<title>交流</title>
 	<link rel="stylesheet" href="./css/communicate.css">
+	<link rel="stylesheet" href="https://at.alicdn.com/t/font_234130_nem7eskcrkpdgqfr.css">
 </head>
 <body>
 	 <div class="topbar">
@@ -27,7 +28,7 @@
         	</div>
 		</div>
 	    <ul class="tabs headMenu">
-			<li><a href="" title="人群养生" class='cp'>人群养生</a></li>
+			<!-- <li><a href="#" title="人群养生" class='cp'>人群养生</a></li> -->
 	        <li class="active"><a href="#tab1">男性</a></li>  
 	        <li><a href="#tab2">女性</a></li>  
 	        <li><a href="#tab3">老人</a></li>  
@@ -86,11 +87,11 @@
 					</div> -->
 					<ul class="con">
 						<li class="clearfix mt15">
-							<a href=""><img src="./img/ndf.jpg" alt="" width="180" height="133"></a>
+							<a href=""><img src="./img/yr.jpg" alt="" width="180" height="133"></a>
 							<div class="boxian">
-								<h4><a href="">豆腐对男人有5大害处 吃错伤肾</a></h4>
-								<div class="tag">[营养科普]</div>
-								<p>俗话说：“青菜豆腐保平安”.豆腐入口即化，口感极佳，深受人们喜爱豆腐的养生保健作用，在很多中医书籍中都有记载：豆腐，味甘性凉，具有益气和中、生津解毒的功...</p>
+								<h4><a href="">男人阳虚可多补补羊肉汤</a></h4>
+								<div class="tag">[体质养生]</div>
+								<p>专家指出，男人阳虚体质可补羊肉汤，阳虚体质的特点首要是平常怕冷、四肢举动不温热、嘴唇颜色较淡、毛发易零落、精力不振、轻易出汗，轻易感应疲倦疲惫、喜好热...</p>
 							</div>
 						</li>
 						<li class="clearfix mt15">
@@ -197,9 +198,20 @@
 			<!-- 留言板 -->
 			<div class="liuyan">
 				<h1>留言板</h1>
+				<iframe src="liuyan.html" frameborder="0" width="610" height="700" scrolling="no"></iframe>
+			</div>
+			<!-- 分享 -->
+			<div class="share">
+				<h1>My Circle</h1>
+				<iframe src="share.html" frameborder="0" width="610" height="1500" scrolling="no"></iframe>
 			</div>
 		</div>
 		<div class="con_right">
+			<!-- 日历 -->
+			<div id='schedule-box' class="boxshaw">
+		
+			</div>
+			<!-- 测试 -->
 			<div class="ceshi">
 				<a href="http://food.ttys5.com/calceff">
 					<img src="./img/index_cs.png" alt="体质测试" width="300" height="200">
@@ -262,20 +274,26 @@
 				</ul>
 			</div>
 		</div>
+		<!-- 回到顶部 -->
+		<div class="back">
+			<a href="">
+				<div class="icon_back">^</div>
+			</a>
+		</div>
 	</div>
 	<div class="clear15"></div>
 	<div class="footer">
 		<div class="foot">		
 			Copyrights © 2017-2018
-			<a href="">中华养生</a>
-			 www.cnys.com, All rights reserved. 
+			<a href="">Balance</a>
+			 www.balance.com, All rights reserved. 
 		</div>
 	</div>
 </body>
 <script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script>
+<script src="./js/schedule.js"></script>
 
 <script type="text/javascript">  
-  
 $(document).ready(function() {  
   
     //Default Action  
@@ -292,6 +310,46 @@ $(document).ready(function() {
         $(activeTab).fadeIn(); //Fade in the active content  
         return false;  
     });  
+
+    var mySchedule = new Schedule({
+		el: '#schedule-box',
+		//date: '2018-9-20',
+		clickCb: function (y,m,d) {
+			document.querySelector('#h3Ele').innerHTML = '日期：'+y+'-'+m+'-'+d	
+		},
+		nextMonthCb: function (y,m,d) {
+			document.querySelector('#h3Ele').innerHTML = '日期：'+y+'-'+m+'-'+d	
+		},
+		nextYeayCb: function (y,m,d) {
+			document.querySelector('#h3Ele').innerHTML = '日期：'+y+'-'+m+'-'+d	
+		},
+		prevMonthCb: function (y,m,d) {
+			document.querySelector('#h3Ele').innerHTML = '日期：'+y+'-'+m+'-'+d	
+		},
+		prevYearCb: function (y,m,d) {
+			document.querySelector('#h3Ele').innerHTML = '日期：'+y+'-'+m+'-'+d	
+		}
+	});
+
+	//回到顶部
+    var back = document.querySelector('.back');
+	window.onscroll  = function(){
+		var current = document.body.scrollTop || document.documentElement.scrollTop || window.pageYOffset;
+		if(current > 0){
+			back.style.display = 'block';
+		}else{
+			back.style.display = 'none';
+		}
+	}
+	back.onclick = function(){
+		if(document.body.scrollTop){
+			document.body.scrollTop = 0;
+		}else if(document.documentElement.scrollTop){
+			document.documentElement.scrollTop = 0;
+		}else{
+			window.pageYOffset = 0;
+		}
+	}
   
 });  
 </script>  

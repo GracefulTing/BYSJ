@@ -215,14 +215,42 @@
 			</div>
 			<div class="rbot">&nbsp;</div>
 		</div>
+		<!-- 回到顶部 -->
+		<div class="back">
+			<a href="">
+				<div class="icon_back">^</div>
+			</a>
+		</div>
 	</div>
 	<div class="clear15"></div>
 	<div class="footer">
 		<div class="foot">		
 			Copyrights © 2017-2018
-			<a href="">中华养生</a>
-			 www.cnys.com, All rights reserved. 
+			<a href="">Balance</a>
+			 www.balance.com, All rights reserved. 
 		</div>
 	</div>
 </body>
+<script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script>
+<script>
+	//回到顶部
+    var back = document.querySelector('.back');
+	window.onscroll  = function(){
+		var current = document.body.scrollTop || document.documentElement.scrollTop || window.pageYOffset;
+		if(current > 0){
+			back.style.display = 'block';
+		}else{
+			back.style.display = 'none';
+		}
+	}
+	back.onclick = function(){
+		if(document.body.scrollTop){
+			document.body.scrollTop = 0;
+		}else if(document.documentElement.scrollTop){
+			document.documentElement.scrollTop = 0;
+		}else{
+			window.pageYOffset = 0;
+		}
+	}
+</script>
 </html>

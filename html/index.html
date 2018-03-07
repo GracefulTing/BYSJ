@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>养生网</title>
+    <title>Balance</title>
     <link rel="stylesheet" href="./css/index.css">
 </head>
 <body>
@@ -10,9 +10,9 @@
     <div id="head">
         <div class="head_con">
             <div class="logo">
-                <!-- <img src="./img/logo.png" alt=""> -->
+                <img src="./img/ttlogo.jpg" alt="" width="172" height="68">
             </div>
-           <div class="nav">
+            <div class="nav">
                 <a href="" class="cur">首页</a>
                 <!-- <a href="">资讯</a> -->
                 <a href="./caipu.html">菜谱</a>
@@ -22,7 +22,16 @@
             </div>
             <div class="person">
                 <div class="search">
-                     <input type="text" class="search-form-input" placeholder="请输入关键词"><input type="submit" value="搜索" class="search-form-submit">
+                   <!--   <input type="text" class="search-form-input" placeholder="请输入关键词"><input type="submit" value="搜索" class="search-form-submit"> -->
+                    <div class="wyInput" id="myInput">
+                        <div class="wyinput-group">
+                            <input type="text" placeholder="请输入关键字">
+                            <a href="#" class="wyinput-btn">搜 索</a> 
+                        </div>
+                        <div class="wyinput-drop">
+
+                        </div>
+                    </div>
                 </div>
                 <!-- 图标搜索登录注册 -->
                 <a href="log.html"><div class="login">登录</div></a> | 
@@ -500,6 +509,12 @@
                 </li> -->
             </ul>
         </div>
+        <!-- 回到顶部 -->
+        <div class="back">
+            <a href="">
+                <div class="icon_back">^</div>
+            </a>
+        </div>
     </div>
     <div class="gap10"></div>
     <!-- 第三部分：底部 -->
@@ -534,15 +549,18 @@
             </div>
             <div class="footer">
                 <div class="bot">
-                    Copyrights © 2017-2020 养生网 www.cnys.com, All rights reserved.
-                    <div class="phone">违法和不良信息举报电话：0898-65801126　　陈先生15109803521　　举报邮箱：734773@qq.com</div>
+                    Copyrights © 2017-2020 养生网 www.balance.com, All rights reserved.
+                    <div class="phone">违法和不良信息举报电话：123456789586　 举报邮箱：3333555697@qq.com</div>
                 </div>            
             </div>
         </div>
     </div>
 </body>
 <script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script>
+<script src="./js/wy_select.js"></script>
 <script>
+    $("#myInput").wy_inselect([{name:'菜谱'},{name:'运动'},{name:'心理'},{name:'交流'}]);
+
     $.ajax({
         url:'../php/code/indexcaipu.php',
         type:'get',
@@ -556,5 +574,26 @@
             $(".shipu .caipu").append(con);   
         }
     })
+
+    //回到顶部
+    var back = document.querySelector('.back');
+    window.onscroll  = function(){
+        var current = document.body.scrollTop || document.documentElement.scrollTop || window.pageYOffset;
+        if(current > 0){
+            back.style.display = 'block';
+        }else{
+            back.style.display = 'none';
+        }
+    }
+    back.onclick = function(){
+        if(document.body.scrollTop){
+            document.body.scrollTop = 0;
+        }else if(document.documentElement.scrollTop){
+            document.documentElement.scrollTop = 0;
+        }else{
+            window.pageYOffset = 0;
+        }
+    }
+
 </script>
 </html>

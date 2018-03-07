@@ -16,7 +16,7 @@ a:hover{text-decoration:none;}
 	line-height: 34px;
 }
 .topbar .topnav{
-	width:1100px;
+	width:960px;
 	margin:0 auto;
 	color:#ccc;
 }
@@ -305,4 +305,21 @@ a:hover{text-decoration:none;}
 	text-align:center;
 	padding:10px 0;
 	overflow: hidden;
+}
+.back{
+	position: fixed;
+	left:50%;
+	margin-left:550px;
+	bottom:75px;
+	display: none;
+}
+.icon_back{
+	display: inline-block;
+	width:50px;
+	height:50px;
+	background:#1bbc9b;
+	text-align: center;
+	font-size:35px;
+	line-height:60px;
+	color:white;
 }
