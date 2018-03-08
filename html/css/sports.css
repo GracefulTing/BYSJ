@@ -32,7 +32,7 @@ a:hover{text-decoration:none;}
 .head{
 	width:960px;
 	display: block;
-	border:1px solid;
+	/*border:1px solid;*/
 	margin:0 auto;
 }
 .head .headLogo{
@@ -58,19 +58,19 @@ a:hover{text-decoration:none;}
 	border:1px solid #e3e3e3;
 	border-radius:3px;
 }
-.head .headMenu p{
+.head .headMenu li{
 	display: block;
 	padding-left:10px;
 }
-.head .headMenu p a{
+.head .headMenu li a{
 	float:left;
 	padding:0 30px;
 	font-size:16px;
 }
-.head .headMenu p a:hover{
+.head .headMenu li a:hover{
 	color:red;
 }
-.head .headMenu p a.cp{
+.head .headMenu li a.cp{
 	border-right:1px solid #f3f3f3;
 	height:20px;
 	line-height:20px;
@@ -90,7 +90,7 @@ a:hover{text-decoration:none;}
 	width:960px;
 	margin:0 auto;
 	overflow: hidden;
-	border:1px solid red;
+	/*border:1px solid red;*/
 }
 .content .con_left{
 	width:620px;
@@ -322,4 +322,7 @@ a:hover{text-decoration:none;}
 	font-size:35px;
 	line-height:60px;
 	color:white;
+}
+.active a{
+	color:#88bd43;
 }

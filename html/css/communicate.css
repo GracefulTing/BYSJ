@@ -33,7 +33,7 @@ a:hover{text-decoration:none;}
 	width:960px;
 /*	height:70px;*/
 	display: block;
-	border:1px solid;
+	/*border:1px solid;*/
 	margin:0 auto;
 }
 .head .headLogo{
@@ -113,7 +113,7 @@ a:hover{text-decoration:none;}
 	width:960px;
 	margin:0 auto;
 	overflow: hidden;
-	border:1px solid red;
+	/*border:1px solid red;*/
 }
 .content .con_left{
 	width:610px;
@@ -224,7 +224,7 @@ a:hover{text-decoration:none;}
 }
 .content .con_right{
 	width:336px;
-	border:1px solid;
+	/*border:1px solid;*/
 	float:right;
 }
 .content .con_right .helper .tit{
@@ -340,9 +340,9 @@ a:hover{text-decoration:none;}
 	overflow: hidden;
 }
 #schedule-box{
-	width: 320px;
+	width: 300px;
 	margin: 0 auto;
-	padding: 30px 10px;
+	padding: 10px 10px;
 	font-size: 13px;
 }
 .schedule-hd{
@@ -416,4 +416,7 @@ a:hover{text-decoration:none;}
 	font-size:35px;
 	line-height:60px;
 	color:white;
+}
+.active a{
+	color:#1bbc9b;
 }

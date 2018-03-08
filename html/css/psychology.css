@@ -32,7 +32,7 @@ a:hover{text-decoration:none;}
 .head{
 	width:960px;
 	display: block;
-	border:1px solid;
+	/*border:1px solid;*/
 	margin:0 auto;
 }
 .head .headLogo{
@@ -90,7 +90,7 @@ a:hover{text-decoration:none;}
 	width:960px;
 	margin:0 auto;
 	overflow: hidden;
-	border:1px solid red;
+	/*border:1px solid red;*/
 }
 .content .alert{
 	height:37px;
@@ -415,4 +415,7 @@ h3{
 	font-size:35px;
 	line-height:60px;
 	color:white;
+}
+.headMenu p  a.active{
+	color:#07793e;
 }

@@ -10,7 +10,7 @@
     <div id="head">
         <div class="head_con">
             <div class="logo">
-                <img src="./img/ttlogo.jpg" alt="" width="172" height="68">
+                <img src="./img/ttlogo.jpg" alt="" width="172" height="70">
             </div>
             <div class="nav">
                 <a href="" class="cur">首页</a>
@@ -34,8 +34,11 @@
                     </div>
                 </div>
                 <!-- 图标搜索登录注册 -->
-                <a href="log.html"><div class="login">登录</div></a> | 
-                <a href="reg.html"><div class="reg">注册</div></a>
+                <a class="login">登录</a><a class='line'>|</a>
+                <a class="reg">注册</a>
+                <span class="touxiang">
+                    <a title="已登录"><i class="user-photo"></i></a>
+                </span>
             </div>
         </div>
     </div>
@@ -566,7 +569,7 @@
         type:'get',
         success:function(data){
             var arr = JSON.parse(data);
-            console.log(arr);
+            // console.log(arr);
             var con = "";
             for(var l=0;l<arr.length;l++){
                 con += '<li><a href="" title=" '+arr[l].title +'的做法"><i><img src=' + arr[l].img+ '></i><b>' + arr[l].title + '</b></a></li>';
@@ -594,6 +597,13 @@
             window.pageYOffset = 0;
         }
     }
+
+    $(".login").click(function(){
+        $(".login").hide();
+        $(".reg").hide();
+        $(".line").hide();
+        $(".touxiang").show();
+    })
 
 </script>
 </html>
