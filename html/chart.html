@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>form</title>
+    <style>
+        .ask{
+            width:600px;
+            border:1px solid;
+            margin:0 auto;
+        }
+        .ask h2{
+            text-align: center;
+        }
+        .ask .label1{
+            margin-left:10px;
+        }
+        .ask .label1 p{
+            margin-bottom: 10px;
+        }
+        #btn{
+            margin:10px;
+        }
+    </style>
+</head>
+<body>
+    <form action="../php/code/chart.php" class="ask" method="post">
+        <div class="label1">
+            <p>1.此时的体重？</p>
+            体重:<input type="text" name="weight">
+        </div>
+        <div class="label1">
+            <p>2.昨日睡眠质量怎么样?</p>
+            <input type="radio" name="sleep" value="好">好<br>
+            <input type="radio" name="sleep" value="一般">一般<br>
+            <input type="radio" name="sleep" value="失眠">失眠<br>
+        </div>
+        <div class="label1">
+            <p>3.今日心情情况?</p>
+            <input type="radio" name="xinqing" value="好">好<br>
+            <input type="radio" name="xinqing" value="一般">一般<br>
+            <input type="radio" name="xinqing" value="糟糕">糟糕<br>
+        </div>
+        <div class="label1">
+            <p>4.今天的食物哪个类别占比大?</p>
+            <input type="radio" name="food" value="蔬菜">蔬菜<br>
+            <input type="radio" name="food" value="肉类">肉类<br>
+            <input type="radio" name="food" value="蛋白质">蛋白质<br>
+            <input type="radio" name="food" value="汤类">汤类<br>
+            <input type="radio" name="food" value="其他">其他
+        </div>
+        <div class="label1" style='display: none;'>
+            <input type="text" name='state'>
+        </div>
+        <input type="submit" id="btn">
+    </form>
+</body>
+<script src="https://cdn.bootcss.com/echarts/4.0.4/echarts.min.js"></script>
+<script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script>
+<script>
+    $("#btn").click(function(){
+        if($("input[name='sleep']:checked").val() == '好' && $("input[name='xinqing']:checked").val() == '好'){
+            $("input[name='state']").val('良好');
+        }else if($("input[name='sleep']:checked").val() == '糟糕' && $("input[name='xinqing']:checked").val() == '糟糕'){
+            $("input[name='state']").val('糟糕');
+        }else{
+            $("input[name='state']").val('一般');
+        }
+    })
+</script>
+</html>

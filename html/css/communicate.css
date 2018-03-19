@@ -65,7 +65,23 @@ a:hover{text-decoration:none;}
     margin-right:20px;
 }
 .head .headLogo .logo_caipu{
-	background: url(../img/logo_caipu.jpg) no-repeat left 8px;
+	/*background: url(../img/logo_caipu.jpg) no-repeat left 8px;*/
+	background: url(../img/wb-logo.png) no-repeat;
+	background-size:70% 100%;
+}
+.head .headLogo .jl-logo{
+	width:35px;
+	height:20px;
+	padding:5px 10px;
+	line-height: 20px;
+	background:rgb(255,96,33);
+	color:white;
+	border-radius: 5px;
+	font-size:17px;
+	position: absolute;
+	left:190px;
+	top:23px;
+	text-align: center;
 }
 .head .headMenu{
 	/*display: block;*/
@@ -273,7 +289,7 @@ a:hover{text-decoration:none;}
 }
 .content .con_table{
 	/*border:1px solid #e3e3e3;*/
-	height:500px;
+	height:850px;
 }
 .content .liuyan{
 	/*border:1px solid #e3e3e3;*/
@@ -378,3 +394,13 @@ a:hover{text-decoration:none;}
 .active a{
 	color:#1bbc9b;
 }
+/*.ask{
+	margin:10px;
+	font-size:16px;
+}
+.ask  .label1{
+	margin-bottom: 10px;
+}
+.ask .label1 p{
+	margin-bottom: 10px;
+}*/

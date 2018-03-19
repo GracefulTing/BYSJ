@@ -46,30 +46,28 @@ a:hover{text-decoration:none;}
 	float:left;
 	width:260px;
 	height:70px;
-/*	width:100px;
-	height:70px;*/
 }
 .head .headLogo .logo_caipu{
 	/*background: url(../img/logo_caipu.jpg) no-repeat left 8px;*/
-	background: url(../img/ttlogo.jpg) no-repeat -45px;
-	background-size:260px 70px;
+	background: url(../img/wb-logo.png) no-repeat;
+	background-size:70% 100%;
 }
 /*.head .headLogo .ht{
 	font-size:50px;
 }*/
-.head .headLogo .caipuBtn{
+.head .headLogo .cp-logo{
 	width:35px;
 	height:20px;
+	padding:5px 10px;
+	line-height: 20px;
 	background:rgb(255,96,33);
 	color:white;
-	padding:5px 10px;
-	border-radius:7px;
-	position: absolute;
-	top:20px;
-	left:190px;
-	text-align: center;
-	line-height:20px;
+	border-radius: 5px;
 	font-size:17px;
+	position: absolute;
+	left:190px;
+	top:23px;
+	text-align: center;
 }
 .head .headMenu{
 	/*display: block;*/

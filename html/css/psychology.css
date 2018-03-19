@@ -48,7 +48,23 @@ a:hover{text-decoration:none;}
 	height:70px;
 }
 .head .headLogo .logo_caipu{
-	background: url(../img/logo_caipu.jpg) no-repeat left 8px;
+	/*background: url(../img/logo_caipu.jpg) no-repeat left 8px;*/
+	background: url(../img/wb-logo.png) no-repeat;
+	background-size:70% 100%;
+}
+.head .headLogo .xl-logo{
+	width:35px;
+	height:20px;
+	padding:5px 10px;
+	line-height: 20px;
+	background:rgb(255,96,33);
+	color:white;
+	border-radius: 5px;
+	font-size:17px;
+	position: absolute;
+	left:190px;
+	top:23px;
+	text-align: center;
 }
 .head .headMenu{
 	/*display: block;*/
