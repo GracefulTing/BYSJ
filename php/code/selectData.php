@@ -14,6 +14,10 @@
  
         class User{
             public $state;
+            public $weight;
+            public $today;
+            public $per_data1;
+            public $per_data2;
         }
         if($result->num_rows){
             $data = $result->fetch_all(MYSQLI_ASSOC);

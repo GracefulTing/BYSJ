@@ -1,27 +1,40 @@
 <!DOCTYPE html>
-<html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <title>form</title>
-    <style>
-        #container{
-            border:1px solid;
-            margin:10px auto;
-        }
-        #box{
-            border:1px solid;
-            margin:500px auto;
-        }
-    </style>
+<meta charset="utf-8">
+<title>ECharts</title>
+<style>
+    #wrap{
+        width:800px;
+        margin:0 auto;
+    }
+    #wrap > div{
+        box-sizing: border-box;
+    }
+    .btn{
+        width:30px;
+        height:20px;
+        line-height:20px;
+        padding:2px 10px;
+        background:#C43336;
+        border-radius: 5px;
+        color:white;
+        text-decoration: none;
+    }
+</style>
 </head>
 <body>
-    <div id="container" style="width:580px; height: 400px;">
-    <div id="box" style="width:580px;height:400px;"></div>
-</body>
+<!-- 为ECharts准备一个具备大小（宽高）的Dom -->
+<div id="wrap">
+    <div id="pieMain" style="width:600px;height:400px;border:1px solid;"></div>
+    <div id="lineMain" style="width:600px;height:400px;border:1px solid;margin-top: 10px;margin-bottom: 10px;"></div>
+    <a href="chart.html" class="btn">返回</a>
+</div>
+<!-- ECharts单文件引入 -->
 <script src="https://cdn.bootcss.com/echarts/4.0.4/echarts.min.js"></script>
 <script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script>
-<script>
-    var state = [],weight = [];
+<script type="text/javascript">
+    // 初始化数组，盛装从数据库中获取到的数据
+    var state = [],weight = [],today = [],per_data1 = [],per_data2 = [];
  
     //调用ajax来实现异步的加载数据
     function getusers() {
@@ -36,6 +49,9 @@
                     for(var i = 0 ; i < result.length; i++){
                         state.push(result[i].state);
                         weight.push(result[i].weight);
+                        today.push(result[i].today);
+                        per_data1.push(result[i].per_data1);
+                        per_data2.push(result[i].per_data2);
                     }
                 }
             },
@@ -43,260 +59,317 @@
                 alert("Ajax获取服务器数据出错了！"+ errmsg);
             }
         });
-        return state,weight;
+        return state,weight,today,per_data1,per_data2;
     }
  
     // 执行异步请求
     getusers();
+  
+　　 drawPie();
+　　 drawLine();
  
- 
-    var mychart = echarts.init(document.getElementById("container"));
-    var option = {
-        tooltip: {
-            trigger: 'item',
-            formatter: "{a} <br/>{b} : {c} ({d}%)"
+function drawPie(){
+　　　　var myPieChart = echarts.init(document.getElementById('pieMain'));
+    var colors = ['#C43336', '#CBCBCB'];
+    var data1 = per_data1;
+    var data2 = per_data2;
+    var xData = today;
+    option = {
+        backgroundColor:'#fff',
+        title: {
+            text: '健康指标',
+            textStyle: {
+                fontSize: '15'
+            }
         },
-        toolbox: {
-                show: true,
-                feature: {
-                    dataView: {readOnly: true},
-                    // restore: {},
-                    saveAsImage: {
-                        title:"保存为png"
-                    }
-                },
-                orient:"vertical",
-                right:20,
-                top:"middle",
-                itemSize:20,
-                itemGap:30
-            },
-        legend: {
-            orient: 'vertical',
-            left: 'left',
-            data: ['健康指数']
-        },
-        series: [{
-            name: '饼图二',
-            type: 'pie',
-            radius: ['50%', '60%'],
-            label: {
-                normal: {
-                    position: 'center'
-                }
-            },
-            data: [{
-                value: 60,
-                name:'健康指数',
-                label: {
-                    normal: {
-                        formatter: '{d} %',
-                        textStyle: {
-                            fontSize: 40
-                        }
-                    }
-                }
-            }, {
-                value: 40,
-                name: state,
-                label: {
-                    normal: {
-                        formatter: state,
-                        textStyle: {
-                            color: '#555',
-                            fontSize: 30
-                        }
-                    }
-                },
-                tooltip: {
-                    show: false
-                },
-                itemStyle: {
-                    normal: {
-                        color: '#aaa'
-                    },
-                    emphasis: {
-                        color: '#aaa'
-                    }
-                },
-                hoverAnimation: false
-            }]
-        }]
-    };
-     mychart.setOption(option);
-
-
-     //指定图标的配置和数据
-        var  option = {
-            fontFamily: 'Roboto',
-            name: '体重',
-            toolbox: {
-                show: true,
-                feature: {
-                    dataView: {readOnly: true},
-                    // restore: {},
-                    saveAsImage: {
-                        title:"保存为png"
-                    }
-                },
-                orient:"vertical",
-                right:20,
-                top:"middle",
-                itemSize:20,
-                itemGap:30
-            },
-            backgroundColor: '#82d7f3',
-            title: {
-                text: '79kg', //最近一次体重
-                subtext: '      体重',
-                textStyle: {
-                    fontWeight: 'bolder',
-                    fontSize: 48,
-                    color: '#FFFFFF',
-                },
-                subtextStyle: {
-                    fontWeight: 'bolder',
-                    fontSize: 24,
-                    color: '#0099ff',
-                },
-                right: '0%',
-                top: '0%'
-            },
-            dataZoom: [{ // 这个dataZoom组件，默认控制x轴。
-                type: 'slider', // 这个 dataZoom 组件是 slider 型 dataZoom 组件
-                start: 50, // 左边在 10% 的位置。
-                end: 100 // 右边在 60% 的位置。
-            }],
-            grid: {
-                left: '5%',
-                right: '10%',
-                bottom: '5%',
-                containLabel: true
-            },
-            xAxis: [{
-                type: 'category',
-                boundaryGap: false,
-                data: ['9.23', '10.3', '10.11', '10.15', '10.26', '12.26'],
-                axisLabel: {
+         toolbox: {
                     show: true,
-                    interval: 0,
-                    fontSize: 20,
-                    color: '#ffffff',
-                    fontWeight: 'bold'
-                },
-                axisLine: {
-                    show: false
-                },
-                axisTick: {
-                    show: false
-                },
-            }],
-            yAxis: [{
-                show: false,
-                min: 76, //最低为临近BMI线减3
-                max: 85, //最高为临近BMI线加3或最高值加3
-            }],
-            series: [{
-                name: '体重',
-                type: 'line',
-                smooth: true,
-                symbol: 'circle',
-                showSymbol: true,
-                lineStyle: {
-                    normal: {
-                        width: 5,
-                        color: '#0099ff',
-                        shadowBlur: 6,
-                        shadowColor: 'rgba(0, 0, 0, 0.2)',
-                        shadowOffsetY: 8,
-                    }
-                },
-                areaStyle: {
-                    normal: {
-                        color: new echarts.graphic.LinearGradient(1, 1, 1, 0, [{
-                            offset: 0,
-                            color: 'rgba(58,191,238, 1)'
-                        }, {
-                            offset: 1,
-                            color: 'rgba(58,191,238, 0.3)'
-                        }]),
+                    feature: {
+                        dataView: {readOnly: true},
+                        saveAsImage: {
+                            title:"保存为png"
+                        }
                     },
+                    orient:"vertical",
+                    right:20,
+                    top:"middle",
+                    itemSize:20,
+                    itemGap:30
                 },
-                itemStyle: {
-                    normal: {
-                        color: '#0099ff',
-                        borderColor: '#ffffff',
-                        borderWidth: 12,
-                    }
+        "tooltip": {
+            "trigger": "axis",
+            "axisPointer": {
+                "type": "shadow",
+                textStyle: {
+                    color: "#fff"
+                }
+ 
+            },
+        },
+        grid: {
+            top: 65,
+            right: '10%',
+            bottom: '10%'
+        },
+        legend: {
+            data: ['健康占比', '非健康占比'],
+            align: 'left',
+            left: 200,
+            top: 20
+        },
+        "calculable": true,
+        "xAxis": [{
+            "type": "category",
+            "axisLine": {
+                lineStyle: {
+                    color: '#000'
+                }
+            },
+            "splitLine": {
+                "show": false
+            },
+            "axisTick": {
+                "show": false
+            },
+            "splitArea": {
+                "show": false
+            },
+            "axisLabel": {
+                "interval": 0,
+                // rotate:-30,
+                textStyle: {
+                    fontSize: 10
+                }
+            },
+            "data": xData,
+        }],
+        yAxis: [{
+            type: 'value',
+            name: '',
+            min: 0,
+            max: 100,
+            position: 'left',
+            axisLine: {
+                lineStyle: {
+                    color: '#000'
+                }
+            },
+            axisLabel: {
+                formatter: '{value} '
+            }
+        }],
+        series: [{
+                name: '健康占比',
+                type: 'bar',
+                color: colors[0],
+                barWidth: 15,
+                data: per_data1
+            },
+            {
+                name: '非健康占比',
+                type: 'bar',
+                color: colors[1],
+                barWidth: 15,
+                data: per_data2
+            },
+            {
+                name: '健康指数',
+                type: 'pie',
+                radius: ['25%', '30%'],
+                color: ['#C43336', '#CBCBCB'],
+                center: ['85%', '18%'],
+                tooltip: {
+                    trigger: 'item',
+                    formatter: "{a} <br/>{b} : {c} ({d}%)"
                 },
                 label: {
                     normal: {
-                        show: true,
-                        position: 'top',
-                        color: '#ffffff',
-                        fontSize: 24,
-                    },
+                        position: 'center'
+                    }
                 },
-                markLine: {
-                    //体质指数（BMI）=体重（kg）÷身高^2（m）
-                    //BMI指数过轻：低于18.5
-                    //正常：18.5-23.9
-                    //过重：24-27
-                    //肥胖：28-32
-                    //非常肥胖, 高于32
-                    lineStyle: {
+                data: [{
+                    value: data1[0],
+                    name: '健康占比',
+ 
+                    label: {
                         normal: {
-                            color: 'rgba(0,0,0,0.3)',
-                        },
+                            formatter: '{d} %',
+                            textStyle: {
+                                fontSize: 15
+                            }
+                        }
+                    }
+                }, {
+                    value: data2[0],
+                    name: '非健康占比',
+ 
+                    label: {
+                        normal: {
+                            formatter: '\n' + state[0],
+                            textStyle: {
+                                color: '#555',
+                                fontSize: 16
+                            }
+                        }
                     },
-                    data: [{
-                        name: '超胖32',
+                    itemStyle: {
+                        normal: {
+                            color: '#aaa'
+                        },
+                        emphasis: {
+                            color: '#aaa'
+                        }
+                    },
+                }]
+            }
+        ]
+    };
+    // 点击事件
+    myPieChart.on('mouseover', function(params) {
+        if (params.componentType === 'series' && params.seriesType === 'bar') {
+            var dataIndex = params.dataIndex;
+            myPieChart.setOption({
+                series: [{
+                        name: '健康占比',
+                        type: 'bar',
+                        color: colors[0],
+                        barWidth: 15,
+                        data: data1
+                    },
+                    {
+                        name: '非健康占比',
+                        type: 'bar',
+                        color: colors[1],
+                        barWidth: 15,
+                        data: data2
+                    },
+                    {
+                        name: '健康指数',
+                        type: 'pie',
+                        radius: ['25%', '30%'],
+                color: ['#C43336', '#CBCBCB'],
+                center: ['85%', '18%'],
+                        tooltip: {
+                            trigger: 'item',
+                            formatter: "{a} <br/>{b} : {c} ({d}%)"
+                        },
                         label: {
                             normal: {
-                                formatter: '超胖 90kg',
-                                position: 'middle',
-                                fontSize: 18,
+                                position: 'center'
                             }
                         },
-                        yAxis: 85, //体质指数（BMI32）=体重（kg）÷身高^2（m）
-                    }, {
-                        name: '肥胖28',
-                        label: {
-                            normal: {
-                                formatter: '肥胖 85kg',
-                                position: 'middle',
-                                fontSize: 18,
+                        data: [{
+                            value: data1[dataIndex],
+                            name: '健康占比',
+ 
+                            label: {
+                                normal: {
+                                    formatter: '{d} %',
+                                    textStyle: {
+                                        fontSize: 15
+                                    }
+                                }
                             }
-                        },
-                        yAxis: 80, //体质指数（BMI）28=体重（kg）÷身高^2（m）
-                    }, {
-                        name: '过重24',
-                        label: {
-                            normal: {
-                                formatter: '过重 80kg',
-                                position: 'middle',
-                                fontSize: 18,
-                            }
-                        },
-                        yAxis: 75, //体质指数（BMI）24=体重（kg）÷身高^2（m）
-                    }, {
-                        name: '正常18.5',
-                        label: {
-                            normal: {
-                                formatter: '正常 65kg',
-                                position: 'middle',
-                                fontSize: 18,
-                            }
-                        },
-                        yAxis: 70, //体质指数（BMI）18.5=体重（kg）÷身高^2（m）
-                    }]
-                },
-                data: [83, 82, 80, 83, 80, 79]
-            }, ]
-        };
-        //初始化echarts实例
-        var myChart = echarts.init(document.getElementById('box'));
-        //使用制定的配置项和数据显示图表
-        myChart.setOption(option);
+                        }, {
+                            value: data2[dataIndex],
+                            name: '非健康占比',
+ 
+                            label: {
+                                normal: {
+                                    formatter: '\n' + state[dataIndex],
+                                    textStyle: {
+                                        color: '#555',
+                                        fontSize:16
+                                    }
+                                }
+                            },
+                            itemStyle: {
+                                normal: {
+                                    color: '#aaa'
+                                },
+                                emphasis: {
+                                    color: '#aaa'
+                                }
+                            },
+                        }]
+                    }
+                ]
+            })
+        }
+    });
+    myPieChart.setOption(option,true); //当setOption第二个参数为true时，会阻止数据合并
+}
+  
+  
+function drawLine(){
+　　var myLineChart = echarts.init(document.getElementById('lineMain'));
+ 
+    var option2 = {
+    　　　　title : {
+    　　　　text: '一周体重变化情况',
+        textStyle: {
+                fontSize: '15'
+            }
+    　　},
+    　　tooltip : {
+    　　　　trigger: 'axis'
+    　　},
+    　　legend: {
+    　　　　data:['体重'],
+        top:10
+    　　},
+      grid:{
+        top:70,
+        bottom:40
+      },
+    　　toolbox: {
+    　　　　show : true,
+    　　　　feature : {
+    　　　　　　mark : {show: true},
+    　　　　　　dataView : {show: true, readOnly: false},
+    　　　　　　magicType : {show: true, type: ['line', 'bar']},
+    　　　　　　restore : {show: true},
+    　　　　　　saveAsImage : {show: true}
+    　　　　},
+        right:15
+    　　},
+    　　calculable : true,
+    　　xAxis : [
+    　　　　{
+    　　　　　　type : 'category',
+    　　　　　　boundaryGap : false,
+    　　　　　　data : today
+    　　　　}
+    　　],
+    　　yAxis : [
+    　　　　{
+    　　　　　　type : 'value',
+    　　　　　　axisLabel : {
+    　　　　　　　　formatter: '{value} kg'
+    　　　　　　}
+    　　　　}
+    　　],
+    　　series : [
+    　　　　{
+    　　　　　　name:'体重',
+    　　　　　　type:'line',
+    　　　　　　data:weight,
+    　　　　　　markPoint : {
+    　　　　　　　　data : [
+    　　　　　　　　　　{type : 'max', name: '最大值'},
+    　　　　　　　　　　{type : 'min', name: '最小值'}
+    　　　　　　　　]
+    　　　　　　},
+    　　　　　　markLine : {
+    　　　　　　　　data : [
+    　　　　　　　　　　{type : 'average', name: '平均值'}
+    　　　　　　　　]
+    　　　　　　}
+    　　　　}
+    　　]
+    };
+    myLineChart.setOption(option2,true);
+}
 </script>
+</body>
 </html>

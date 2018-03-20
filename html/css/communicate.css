@@ -289,7 +289,7 @@ a:hover{text-decoration:none;}
 }
 .content .con_table{
 	/*border:1px solid #e3e3e3;*/
-	height:850px;
+	/*height:910px;*/
 }
 .content .liuyan{
 	/*border:1px solid #e3e3e3;*/
@@ -378,7 +378,7 @@ a:hover{text-decoration:none;}
 	position: fixed;
 	left:50%;
 	margin-left:550px;
-	bottom:75px;
+	bottom:30px;
 	display: none;
 }
 .icon_back{

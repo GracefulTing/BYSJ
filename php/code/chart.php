@@ -18,6 +18,9 @@
             public $xinqing;
             public $food;
             public $state;
+            public $today;
+            public $per_data1;
+            public $per_data2;
         }
         if($result->num_rows){
             $data = $result->fetch_all(MYSQLI_ASSOC);
@@ -31,7 +34,7 @@
     }
  
     # 准备sql语句
-    $sql = "INSERT INTO chart (sleep,xinqing,food,state) values ($_POST[sleep]','$_POST[xinqing]','$_POST[food]','$_POST[state]')";
+    $sql = "INSERT INTO chart (weight,sleep,xinqing,food,state,today,per_data1,per_data2) values ('$_POST[weight]','$_POST[sleep]','$_POST[xinqing]','$_POST[food]','$_POST[state]',CURDATE(),'$_POST[per_data1]','$_POST[per_data2]')";
     insertData($sql);
     header("Location:../../html/chartshow.html");
 ?>
