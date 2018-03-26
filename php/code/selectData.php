@@ -6,12 +6,10 @@
         if($mysqli->connect_errno){  //0表示成功,什么都没有
             die($mysqli->connect_error);
         }
-         
         # 设置utf8
         $mysqli->query("set names utf8");
         # 执行sql语句
         $result = $mysqli->query($sql);
- 
         class User{
             public $state;
             public $weight;
@@ -21,17 +19,13 @@
         }
         if($result->num_rows){
             $data = $result->fetch_all(MYSQLI_ASSOC);
- 
             $user = new User();
- 
         }
         echo json_encode($data);
         # 断开连接
         $mysqli->close();
     }
- 
     # 准备sql语句
-    $sql = "SELECT * FROM  chart";
+    $sql = "SELECT * FROM  chart order by  id  desc limit 7";
     selectData($sql);
- 
 ?>

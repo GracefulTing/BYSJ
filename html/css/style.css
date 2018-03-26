@@ -1,10 +1,10 @@
-  body { font-size: 12px; line-height: 120%; text-align: center; color:#333; padding: 20px;}
+body { font-size: 12px; line-height: 120%;color:#333; padding: 20px;}
         a { color: #333; text-decoration: none;}
         a:hover { text-decoration: underline;}
         * { margin: 0; padding: 0; border: none;}
         .clearfix:after { content:"."; display:block; height:0; clear:both; visibility:hidden}
         .clearfix { *height:1%;}
-        #list { margin: 0 auto; text-align: left; width: 540px;}
+        #list { margin: 0px auto; text-align: left; width: 540px;}
         .box { border-top: 1px solid #eee; position: relative;  width: 540px; padding: 20px 0}
         .box:hover .close { display: block;}
         .close { display: none; top:0px; right: 0px; width: 28px; height: 28px; border: 1px solid #eee; position: absolute; background: #f2f4f7; line-height: 27px; text-align: center;}
@@ -36,3 +36,58 @@
         .text-box-on .comment{ height: 50px; color: #333;}
         .text-box-on .btn{ display: inline;}
         .text-box-on .word{ display: inline;}
+
+        .con{
+            width: 540px;
+            height: 100px;
+            margin: 0 auto 5px;
+            border: 1px solid #dedede;
+            color: black;
+            text-indent: 2px;
+            font-size: 14px;
+        }
+        .subbtn{
+            width: 72px;
+            height: 28px;
+            line-height: 28px;
+            font-size: 14px;
+            border-radius: 2px;
+            background-color: #46B2EF;
+            color: #FFFFFF;
+            border: 1px solid #3686B3;
+            cursor:pointer;
+            margin-left: 20px;
+            margin-bottom: 50px;
+            float:right;
+        }
+        .subbtn:hover{
+            background-color: #1a88cf;
+        }
+        .share{
+            width:540px;
+            margin:0 auto;
+        }
+        .share p{
+            font-size:15px;
+            margin-bottom: 10px;
+        }
+        .shareImg{   
+            width: 28px;
+            height: 28px;
+            float: right;
+            margin-top: -40px;
+            margin-right: 10px;
+            cursor:pointer;
+        }
+
+        .share .cir{
+            padding-top: 10px;
+        }
+
+        h1{
+           width: 560px;
+            padding: 0 0 15px 10px;
+            border-bottom: 1px solid #1bbc9b;
+            color: #1bbc9b;
+            font-size: 22px;
+        }

@@ -35,7 +35,6 @@
 <script type="text/javascript">
     // 初始化数组，盛装从数据库中获取到的数据
     var state = [],weight = [],today = [],per_data1 = [],per_data2 = [];
- 
     //调用ajax来实现异步的加载数据
     function getusers() {
         $.ajax({
@@ -45,6 +44,14 @@
             data: {},
             dataType: "json",
             success: function(result){
+                function compare(property){
+                    return function(a,b){
+                        var value1 = a[property];
+                        var value2 = b[property];
+                        return value1 - value2;
+                    }
+                }
+                result.sort(compare('id'));
                 if(result){
                     for(var i = 0 ; i < result.length; i++){
                         state.push(result[i].state);
@@ -55,13 +62,12 @@
                     }
                 }
             },
-             error: function(errmsg) {
+            error: function(errmsg) {
                 alert("Ajax获取服务器数据出错了！"+ errmsg);
             }
         });
         return state,weight,today,per_data1,per_data2;
     }
- 
     // 执行异步请求
     getusers();
   
@@ -69,7 +75,7 @@
 　　 drawLine();
  
 function drawPie(){
-　　　　var myPieChart = echarts.init(document.getElementById('pieMain'));
+　　var myPieChart = echarts.init(document.getElementById('pieMain'));
     var colors = ['#C43336', '#CBCBCB'];
     var data1 = per_data1;
     var data2 = per_data2;

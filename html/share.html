@@ -1,25 +1,32 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
+    <meta charset="UTF-8">
     <title></title>
-    <meta charset="utf-8">
-    <link rel="stylesheet" href="./css/style.css">
+     <link rel="stylesheet" href="./css/style.css">
     <script type="text/javascript" src="./js/demo.js"></script>
 </head>
 <body>
-    <div id="list">
+   <h1>My Circle</h1>
+  <img src="img/fcir.png" alt="" class="shareImg">
+  <div class="share" style="display: none;">
+    <p>写下你的心情...</p>
+    <div class="con" contenteditable="true"></div>
+    <input type="button" name="submit" value="发表" class="subbtn">
+  </div>
+     <div id="list">
         <div class="box clearfix">
             <a class="close" href="javascript:;">×</a>
             <img class="head" src="./img/1.jpg" alt=""/>
             <div class="content">
                 <div class="main">
                     <p class="txt">
-                        <span class="user">Andy：</span>今天发现自己瘦了5斤，好开心！继续坚持！
+                        <span class="user">Andy：</span>跑步一个月后发现自己瘦了5斤，好开心！继续坚持！
                     </p>
                     <img class="pic" src="./img/img1.jpg" alt=""/>
                 </div>
                 <div class="info clearfix">
-                    <span class="time">02-14 23:01</span>
+                    <span class="time">03-10 08:01</span>
                     <a class="praise" href="javascript:;">赞</a>
                 </div>
                 <div class="praises-total" total="4" style="display: block;">4个人觉得很赞</div>
@@ -27,9 +34,9 @@
                     <div class="comment-box clearfix" user="self">
                         <img class="myhead" src="./img/my.jpg" alt=""/>
                         <div class="comment-content">
-                            <p class="comment-text"><span class="user">我：</span>写的太好了。</p>
+                            <p class="comment-text"><span class="user">我：</span>真棒!坚持就是胜利！</p>
                             <p class="comment-time">
-                                2014-02-19 14:36
+                                2018-03-11 14:36
                                 <a href="javascript:;" class="comment-praise" total="1" my="0" style="display: inline-block">1 赞</a>
                                 <a href="javascript:;" class="comment-operate">删除</a>
                             </p>
@@ -65,7 +72,7 @@
                         <div class="comment-content">
                             <p class="comment-text"><span class="user">老鹰：</span>我也想去三亚。</p>
                             <p class="comment-time">
-                                2014-02-19 14:36
+                                2018-02-15 14:36
                                 <a href="javascript:;" class="comment-praise" total="0" my="0">赞</a>
                                 <a href="javascript:;" class="comment-operate">回复</a>
                             </p>
@@ -86,7 +93,7 @@
             <div class="content">
                 <div class="main">
                     <p class="txt">
-                        <span class="user">小Y：</span>今天吃了最爱的烤鱼，好吃，心里美滋滋的！
+                        <span class="user">小Y：</span>和闺蜜约饭吃了烤鱼，超级美味，心情美丽！
                     </p>
                 </div>
                 <div class="info clearfix">
@@ -105,5 +112,123 @@
             </div>
         </div>
     </div>
+
 </body>
+<script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script>
+<script type="text/javascript">
+     $(".subbtn").unbind("click");
+     $(".subbtn").bind("click",function(){
+     var text= $(".con").text();
+     var time=getCurrentTime();
+     if(text==""){
+      alert("您还没有输入任何内容！");
+     }
+     else{
+      loadmessage(text,'zipple',time);
+      $(".con").text("");
+     }
+   })
+   function loadmessage(message,id,time){
+          var contentDiv='<div class="box clearfix">';
+           contentDiv+='<a class="close  closeBtn" href="javascript:;">×</a>';
+           contentDiv+='<img class="head" src="./img/my.jpg" alt=""/>'
+           contentDiv+='<div class="content">';
+           contentDiv+='<div class="main"><p class="txt"><span class="user">我：</span>';
+           contentDiv+=message;
+           contentDiv+='</p></div> ';
+           contentDiv+='<div class="info clearfix"><span class="time">';
+           contentDiv+=time;
+           contentDiv+='</span><a class="praise" href="javascript:;">赞</a></div>';
+           contentDiv+='<div class="praises-total" total="0" style="display: none;"></div><div class="comment-list"></div><div class="text-box"><textarea class="comment" autocomplete="off">评论…</textarea><button class="btn ">回 复</button><span class="word"><span class="length">0</span>/140</span></div>';
+           $("#list").prepend(contentDiv);
+            $(".closeBtn").unbind("click");
+            $(".closeBtn").bind("click",function(){
+                $(this).parent().remove();
+            })
+            var textCon = $(".comment");
+            textCon.unbind("focus");
+            textCon.bind("focus",function(){
+                $(this).val('');
+                $(this).parent().addClass("text-box-on");
+                $(this).keyup();
+            })
+            textCon.unbind("blur");
+            textCon.bind("blur",function(){
+              if($(this).val() == ''){
+                $(this).val("评论…");
+                $(this).parent().removeClass("text-box-on");
+              }
+            })
+            textCon.unbind("keyup");
+            textCon.bind("keyup",function(){
+                var val = $(this).val();
+                var len = val.length;
+                var els = $(this).parent().children();
+                var btn = els[1];
+                var word = els[2];
+                if(len <= 0 || len > 140){
+                  $(btn).addClass("btn-off");
+                }else{
+                  $(btn).removeClass("btn-off");
+                }
+                $(word).html(len + '/140');
+            })
+            $(".btn").unbind("click");
+            $(".btn").bind("click",function(){
+                var val = $(this).parent().find(".comment").val();
+                console.log(val);
+                var commentBox = $("<div class='comment-box clearfix' user='self'><img class=myhead src='./img/my.jpg' /><div class='comment-content'><p class='comment-text'><span class='user'>我：</span>" + val + "</p><p class='comment-time'>" + getCurrentTime() +"<a href='javascript:;' class='comment-praise' total='0' my='0' style=''>赞</a><a href=javascript:; class='comment-operate'>删除</a></p></div>");
+                $(this).parent().parent().find(".comment-list").append(commentBox);
+                $(".comment").val('');
+                $(".comment").blur();
+                $(".comment-operate").unbind("click");
+                $(".comment-operate").bind("click",function(){
+                  $(this).parent().parent().parent().remove();
+                })
+                $(".comment-praise").unbind("click");
+                $(".comment-praise").bind("click",function(){
+                    if($(this).text() == '赞'){
+                        $(this).text('1 取消赞');
+                    }else{
+                        $(this).text('赞');
+                    }
+                })
+                
+            })
+            $(".praise").unbind("click");
+            $(".praise").bind("click",function(){
+              if($(this).text() == '赞'){
+                $(this).text("取消赞");
+                $(this).parent().parent().find(".praises-total").css("display","block").text("我觉得很赞");
+              }else{
+                $(this).text('赞');
+                $(this).parent().parent().find(".praises-total").css("display","none");
+              }
+            })
+    }
+   function getCurrentTime(){
+       var today=new Date();
+       var y=today.getFullYear();
+       var mh=today.getMonth();
+       mh++;
+       var d=today.getDate();
+       var h=today.getHours();
+       var m=today.getMinutes();
+       var s=today.getSeconds();
+       m=checkTime(m)
+       s=checkTime(s)
+       var time=y+"-"+mh+"-"+d+"  "+h+":"+m+":"+s;
+       return time;
+   }
+   function checkTime(i){
+       if(i<10)
+         i="0"+i
+       return i
+    }
+
+     $(".shareImg").click(function(){
+        $(".share").css({"display":"block","margin-top":"10px"});
+        $("#list").css("margin-top","50px")
+    })
+</script>
 </html>

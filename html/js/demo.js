@@ -162,14 +162,12 @@ window.onload = function () {
 
         //评论
         var textArea = boxs[i].getElementsByClassName('comment')[0];
-
         //评论获取焦点
         textArea.onfocus = function () {
             this.parentNode.className = 'text-box text-box-on';
             this.value = this.value == '评论…' ? '' : this.value;
             this.onkeyup();
         }
-
         //评论失去焦点
         textArea.onblur = function () {
             var me = this;
@@ -181,7 +179,6 @@ window.onload = function () {
                 }, 200);
             }
         }
-
         //评论按键事件
         textArea.onkeyup = function () {
             var val = this.value;

@@ -244,15 +244,7 @@
 	   success: function(data){
 	   		var arr = JSON.parse(data);
 	   		// console.log(arr);
-	   
 	   		var dataArr = arr[0].data;
-	    	// for(var l=0;l<dataArr.length;l++){
-	    	// 	var tags = dataArr[l].tag;
-	    	// 	var news = $("<div class=news><a><img src="+ dataArr[l].img +"></a><div class=news_tit><h4><a href='' title=" + dataArr[l].tit +">"+ dataArr[l].tit +"</a></h4><em><img src='./img/icon3.png'></em><div class=clear></div></div><p>"+ dataArr[l].detail +"</p><span class=tags>标签:<a>"+ tags +"</a></span><span class=news_span1>"+ dataArr[l].date +"</span></div>");
-	    	// 	$(".content .con_left #con").append(news);
-	    	// }
-
-
 	    	var nums = 8; //每页出现的数量
 			var pages = Math.ceil(dataArr.length/nums); //得到总页数
 
@@ -266,7 +258,6 @@
 		    		$(".content .con_left .con").append(news);
 				}
 			};
-
 			//调用分页
 			laypage({
 			    cont: 'biuuu_city',
@@ -275,12 +266,10 @@
 			        document.getElementById('biuuu_city_list').innerHTML = thisDate(obj.curr);
 			    }
 			})
-
 			$("#biuuu_city").css({"text-align":"center","padding":"15px"});
 			if($("#biuuu_city_list").html() == 'undefined'){
 				$("#biuuu_city_list").hide();
 			}
-
 		}
 	});
 

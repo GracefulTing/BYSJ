@@ -58,11 +58,6 @@
             }
         })
         $Id.find(".wyinput-group .wyinput-btn").click(function(){
-            // if(arr.length > 0){
-            //     window.open("http://www.baidu.com");
-            // }else{
-            //     alert('Sorry,你搜索的没有结果！');
-            // }
             console.log($(".wyinput-group input").val())
             var value = $(".wyinput-group input").val();
             switch(value){
