@@ -34,11 +34,24 @@
                     </div>
                 </div>
                 <!-- 图标搜索登录注册 -->
-                <a class="login">登录</a> <a class='line'>|</a>
+                <!-- <a class="login">登录</a> <a class='line'>|</a>
                 <a class="reg">注册</a>
                 <span class="touxiang">
                     <a title="已登录"><i class="user-photo"></i></a>
+                </span> -->
+                <a class="login" href="log.html">登录</a><a class='line'> |</a>
+                <a class="reg" href="reg.html">注册</a>
+                <span class="touxiang">
+                    <a title=""><i class="user-photo"></i></a>
                 </span>
+                <span class="logger"></span>
+                <div class="logInfo">
+                    <img src="./img/sj.png" alt="">
+                    <div class="log-card" >
+                        <p class="personal">个人资料</p>
+                        <p class="tuichu">退出</p>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
@@ -523,12 +536,49 @@
         }
     }
 
-    $(".login").click(function(){
+    // $(".login").click(function(){
+    //     $(".login").hide();
+    //     $(".reg").hide();
+    //     $(".line").hide();
+    //     $(".touxiang").show();
+    // })
+    var getState = sessionStorage.getItem('state');
+    var getSex = sessionStorage.getItem('sex');
+    if(getState){
         $(".login").hide();
         $(".reg").hide();
         $(".line").hide();
         $(".touxiang").show();
-    })
+        if(getSex == '女'){
+            $(".touxiang .user-photo").css("background-image","url(./img/girl.jpg)")
+        }else{
+            $(".touxiang .user-photo").css("background-image","url(./img/boy.jpg)")
+        }
+        $(".touxiang a").attr("title",getState);
+        $(".logger").show();
+        $(".logger").html(getState);
+        $(".logger").unbind("mouseenter");
+        $(".logger").bind("mouseenter",function(){
+            $(".logInfo").show();
+        })
+        $(".logInfo").unbind("mousemove");
+        $(".logInfo").bind("mousemove",function(){
+            $(".tuichu").unbind("click");
+            $(".tuichu").bind("click",function(){
+                sessionStorage.clear();
+                $(".logInfo").hide();
+                $(".login").show();
+                $(".reg").show();
+                $(".line").show();
+                $(".touxiang").hide();
+                $(".logger").hide();
+            })
+        })
+        $(".logInfo").unbind("mouseleave");
+        $(".logInfo").bind("mouseleave",function(){
+            $(".logInfo").hide();
+        })
+    }
 
 </script>
 </html>

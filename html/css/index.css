@@ -672,3 +672,40 @@ dt,dd{
     background-position: center center;
     border-radius: 50%;
 }
+.logger{
+    width: 30px;
+    height: 30px;
+    display: inline-block;
+    text-align: center;
+    line-height: 30px;
+    color:#808080;
+    display: none;
+}
+.logInfo{
+    position: relative;
+    top:0;
+    left:0;
+    display: none;
+}
+.logInfo img{
+    position: absolute;
+    top:10px;
+    right:10px;
+}
+.log-card{
+    width:80px;
+    height:56px;
+    background:#fff;
+    position: absolute;
+    right:-40px;
+    top:15px;
+    border: 1px solid #eae6e6;
+}
+.logInfo p{
+    color:#808080;
+    font-size:13px;
+    width:60px;
+    height:15px;
+    padding:5px 10px;
+    cursor: pointer;
+}

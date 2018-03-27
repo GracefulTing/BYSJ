@@ -324,7 +324,7 @@ EventUtil.addLoadHandler(function ()
 <body>
 
 <div id="msgBox">
-    <form>
+    <!-- <form>
         <h2>留下你的脚印~</h2>
 
         <div>
@@ -339,7 +339,24 @@ EventUtil.addLoadHandler(function ()
                 <input id="sendBtn" type="button" value="" title="快捷键 Ctrl+Enter" />
             </p>
         </div>
-    </form>
+    </form> -->
+    <form>   
+	<div class="lyCon" style="display: none;">
+	<h2>留下你的脚印~</h2>
+	    <div>
+	        <input id="userName" class="f-text" value="" />
+	        <p id="face"><img src="img/face1.gif" class="current" /><img src="img/face2.gif" /><img src="img/face3.gif" /><img src="img/face4.gif" /><img src="img/face5.gif" /><img src="img/face6.gif" /><img src="img/face7.gif" /><img src="img/face8.gif" /></p>
+	    </div>
+	    <div><textarea id="conBox" class="f-text"></textarea></div>
+	    <div class="tr">
+	        <p>
+	            <span class="countTxt">还能输入</span><strong class="maxNum">140</strong><span>个字</span>
+
+	            <input id="sendBtn" type="button" value="" title="快捷键 Ctrl+Enter" />
+	        </p>
+	    </div>
+	    </div>
+	</form>
     <div class="list">
         <h3><span>大家在说</span></h3>
         <ul>
