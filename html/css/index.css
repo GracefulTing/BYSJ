@@ -104,6 +104,7 @@ a:hover{text-decoration:none;}
     float:left;
     width:306px;
     height:190px;
+    cursor: pointer;
 }
 #content .con1 .con1_left p{
     float:left;

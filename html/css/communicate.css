@@ -201,6 +201,11 @@ a:hover{text-decoration:none;}
 	border:1px solid #e3e3e3;
 	float:right;
 }
+.content .con_right .helper{
+	width: 330px;
+    margin: 0 auto;
+    border-bottom: 1px solid #e3e3e3;
+}
 .content .con_right .helper .tit{
 	width:336px;
 	position:relative;
