@@ -30,6 +30,16 @@
 
                         </div>
                     </div>
+                   <!--  <form action="http://www.baidu.com/baidu">
+                        <div class="wyinput-group">
+                            <input type=text name=word placeholder="请输入关键字">
+                            <input type="submit" value="搜索">
+                            <input name=tn type=hidden value="bds">
+                            <input name=cl type=hidden value="3">
+                            <input name=ct type=hidden value="2097152">
+                            <input name=si type=hidden value="http://so.cnys.com/cse/search?s=308982725782291017&entry=1&q=">
+                        </div>
+                    </form> -->
                 </div>
                 <!-- 图标搜索登录注册 -->
                 <a class="login" href="log.html">登录</a><a class='line'> |</a>
@@ -493,6 +503,11 @@
 <script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script>
 <script src="./js/wy_select.js"></script>
 <script>
+    //  function baidusearch () {
+    //     var wd=document.getElementsByName("wd")[0].value;
+    //     var link="http://www.baidu.com/s?si=www.williamlong.info&cl=3&ct=2097152&tn=baidulocal&word="+wd;
+    //     window.open(link); 
+    // }
     $("#myInput").wy_inselect([{name:'菜谱'},{name:'运动'},{name:'心理'},{name:'交流'}]);
 
     $.ajax({
