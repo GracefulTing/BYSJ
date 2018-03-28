@@ -293,8 +293,8 @@ a:hover{text-decoration:none;}
 	font-size:12px;
 }
 .content .con_table{
-	/*border:1px solid #e3e3e3;*/
-	/*height:910px;*/
+/*	border:1px solid #e3e3e3;
+	height:850px;*/
 }
 .content .liuyan{
 	/*border:1px solid #e3e3e3;*/
@@ -411,4 +411,21 @@ a:hover{text-decoration:none;}
 }*/
  .liuyan{
 	border-bottom:1px solid #e3e3e3;
+}
+.con_table .msg{
+  	text-align: center;
+    color: #808080;
+	padding:100px;
+}
+.shareImg{   
+    width: 28px;
+    height: 28px;
+    float: right;
+    margin-top: -34px;
+    margin-right: 10px;
+    cursor:pointer;
+}
+
+.share .cir{
+    padding-top: 10px;
 }

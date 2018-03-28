@@ -18,7 +18,6 @@
             })
             $Id.find(".wyinput-drop").delegate(".drop-line a","click",function(){
                 var html=$(this).html();
-                console.log(html)
                 $(this).parents(".wyinput-drop").siblings(".wyinput-group").find("input").val(html);
                 $Id.find(".wyinput-drop").hide()
             })
@@ -58,7 +57,6 @@
             }
         })
         $Id.find(".wyinput-group .wyinput-btn").click(function(){
-            console.log($(".wyinput-group input").val())
             var value = $(".wyinput-group input").val();
             switch(value){
                 case '菜谱':
@@ -77,8 +75,9 @@
                     alert('你所查询的没有结果！');
                     break;
             }
+            $(".wyinput-group input").val('');
+            $(".wyinput-group input").attr('placeholder',"请输入关键字");
         })
-        console.log(arr);
         return arr;
     }
 

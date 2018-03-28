@@ -153,15 +153,18 @@
 			<!-- 表格 -->
 			<div class="con_table">
 				<h1>健康指数</h1>
-				<iframe src="chart.html" frameborder="0" width="610" height="850" scrolling="no"></iframe>
+				<div class="msg">Sorry,您现在还未登录，请先<a href="./log.html" style="color:red;">登录</a>！</div>
+				<iframe src="chart.html" frameborder="0" width="610" height="850" scrolling="no" id="iframe_chart" name="iframe_chart"></iframe>
 			</div>
 			<div class="liuyan" id="liuyan">
 			    <h1>留言板</h1>
 			    <img src="img/l2.png" alt="" style="width:26px;height:26px;float:right;margin-right:16px;margin-top: -35px;cursor: pointer;" class="lyBtn">
-			    <iframe src="liuyan.html" frameborder="0" width="610" height="500" scrolling="no" id="" id="iframe_liuyan" name="iframe_liuyan"></iframe>
+			    <iframe src="liuyan.html" frameborder="0" width="610" height="500" scrolling="no" id="iframe_liuyan" name="iframe_liuyan"></iframe>
 			</div>
 			<!-- 分享 -->
 			<div class="share">
+				<h1 style="padding-top: 5px;">My Circle</h1>
+				<img src="img/fcir.png" alt="" class="shareImg">
 			    <iframe src="share.html" frameborder="0" width="610" height="1200" scrolling="no" id="iframe_share" name="iframe_share"></iframe>
 			</div>
 		</div>
@@ -172,7 +175,7 @@
 			</div>
 			<!-- 测试 -->
 			<div class="ceshi">
-				<a href="http://food.ttys5.com/calceff">
+				<a href="http://food.ttys5.com/calceff" target="_blank">
 					<img src="./img/index_cs.png" alt="体质测试" width="300" height="200">
 				</a>
 			</div>
@@ -180,19 +183,19 @@
 				<h3 class="tit">健康小助手<i></i></h3>
 				<ul>
 					<li class="girl">
-						<a href="http://cn.onlinebmicalculator.com/">
+						<a href="http://cn.onlinebmicalculator.com/" target="_blank">
 							<img src="./img/bmi.png" alt="">
 							<p>BMI</p>
 						</a>
 					</li>
 					<li class="ranks">
-						<a href="http://jianfei.39.net/box/bfr">
+						<a href="http://jianfei.39.net/box/bfr" target="_blank">
 							<img src="./img/ranks.png" alt="">
 							<p>脂肪率</p>
 						</a>
 					</li>
 					<li class="bmi">
-						<a href="https://female.supfree.net/">
+						<a href="https://female.supfree.net/" target="_blank">
 							<img src="./img/girl.png" alt="">
 							<p>女性周期</p>
 						</a>
@@ -203,31 +206,31 @@
 				<h1>健康速递</h1>
 				<ul class="ultu2">
 					<li class="clearfix">
-						<a href="">
+						<a href="http://www.ttys5.com/shanshi/yingyang/2016-10-11/128656.html" target="_blank">
 							<img src="./img/sd1.jpg" alt="" width="115" height="86">
 						</a>
-						<h4><a href="http://www.ttys5.com/shanshi/yingyang/2016-10-11/128656.html">体虚者可以选择使用山药药膳</a></h4>
+						<h4><a href="http://www.ttys5.com/shanshi/yingyang/2016-10-11/128656.html" target="_blank">体虚者可以选择使用山药药膳</a></h4>
 						<p>山药既是滋补食品又是补气中药，为药食两用...</p>
 					</li>
 					<li class="clearfix">
-						<a href="">
+						<a href="http://www.ttys5.com/shanshi/yingyang/2016-10-11/128683.html" target="_blank">
 							<img src="./img/sd2.jpg" alt="" width="115" height="86">
 						</a>
-						<h4><a href="http://www.ttys5.com/shanshi/yingyang/2016-10-11/128683.html">常吃却不对的饮食搭配</a></h4>
+						<h4><a href="http://www.ttys5.com/shanshi/yingyang/2016-10-11/128683.html" target="_blank">常吃却不对的饮食搭配</a></h4>
 						<p>生活中，有些食物的搭配组合已经是由来已久...</p>
 					</li>
 					<li class="clearfix">
-						<a href="">
+						<a href="http://www.ttys5.com/shanshi/yingyang/2016-10-11/128684.html" target="_blank">
 							<img src="./img/sd3.jpg" alt="" width="115" height="86">
 						</a>
-						<h4><a href="http://www.ttys5.com/shanshi/yingyang/2016-10-11/128684.html">脾气暴躁者的营养3建议</a></h4>
+						<h4><a href="http://www.ttys5.com/shanshi/yingyang/2016-10-11/128684.html" target="_blank">脾气暴躁者的营养3建议</a></h4>
 						<p>随着工作、生活节奏的加快，一些人易冲动...</p>
 					</li>
 					<li class="clearfix">
-						<a href="">
+						<a href="http://www.ttys5.com/shanshi/yingyang/2016-10-11/128688.html" target="_blank">
 							<img src="./img/sd4.jpg" alt="" width="115" height="86">
 						</a>
-						<h4><a href="http://www.ttys5.com/shanshi/yingyang/2016-10-11/128688.html">吃海带的8个养生功效</a></h4>
+						<h4><a href="http://www.ttys5.com/shanshi/yingyang/2016-10-11/128688.html" target="_blank">吃海带的8个养生功效</a></h4>
 						<p>可能你知道得最多的是能令头发乌黑的黑芝麻...</p>
 					</li>
 				</ul>
@@ -312,7 +315,7 @@ $(document).ready(function() {
 	}
 
 	var getState = sessionStorage.getItem('state');
-	var shareImage = $(window.frames['iframe_share'].document).find(".shareImg");
+	// var shareImage = $(window.frames['iframe_share'].document).find(".shareImg");
 	var shareCont = $(window.frames['iframe_share'].document).find(".share");
 	var shareList = $(window.frames['iframe_share'].document).find("#list");
 	var cont = $(window.frames['iframe_liuyan'].document).find(".lyCon");
@@ -322,12 +325,19 @@ $(document).ready(function() {
 	    $(".lyBtn").bind("click",function(){
 	        alert("Sorry,您现在还未登录，请先登录！");
 	    })
-	    $(shareImage).unbind("click");
-	    $(shareImage).bind("click",function(){
+	    $(".shareImg").unbind("click");
+	    $(".shareImg").bind("click",function(){
 	        alert("Sorry,您现在还未登录，请先登录！");
 	    })
 
+	   	$("#iframe_chart").hide();
+	   	$(".con_table .msg").show();
+
 	}else{
+		$("#iframe_chart").show();
+	   	$(".con_table .msg").hide();
+
+	   
 	    $(".lyBtn").unbind("click");
 	    $(".lyBtn").bind("click",function(){
 	    	if($(cont).css("display") == 'none'){
@@ -337,8 +347,8 @@ $(document).ready(function() {
 	    	}
 	    })
 
-	    $(shareImage).unbind("click");
-	    $(shareImage).bind("click",function(){
+	    $(".shareImg").unbind("click");
+	    $(".shareImg").bind("click",function(){
 	    	if($(shareCont).css("display") == 'none'){
 		        $(shareCont).css("margin-top","10px").slideDown().show();
 		        $(shareList).css("margin-top","50px");
