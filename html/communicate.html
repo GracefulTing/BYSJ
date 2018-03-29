@@ -340,8 +340,8 @@ $(document).ready(function() {
 	   
 	    $(".lyBtn").unbind("click");
 	    $(".lyBtn").bind("click",function(){
-	    	alert(1);
-	    	$(cont).slideToggle();
+	    	// alert(1);
+	    	cont.slideToggle();
 	    	// if($(cont).css("display") == 'none'){
 	     //    	$(cont).slideDown('slow').show();
 	    	// }else{
@@ -351,8 +351,8 @@ $(document).ready(function() {
 
 	    $(".shareImg").unbind("click");
 	    $(".shareImg").bind("click",function(){
-	    	alert(2)
-	    	// $(shareCont).toggle();
+	    	// alert(2)
+	    	// shareCont.toggle();
 	    	// if($(shareCont).css("display") == 'none'){
 	    	// 	$(shareCont).css("margin-top","");
 		    // 	$(shareList).css("margin-top","");
@@ -360,12 +360,12 @@ $(document).ready(function() {
 	    	// 	$(shareCont).css("margin-top","10px");
 		    // 	$(shareList).css("margin-top","50px");
 	    	// }
-	    	if($(shareCont).css("display") == 'none'){
-		        $(shareCont).css("margin-top","10px").slideDown();
-		        $(shareList).css("margin-top","50px");
+	    	if(shareCont.css("display") == 'none'){
+		        shareCont.css("margin-top","10px").slideDown();
+		        shareList.css("margin-top","50px");
 		    }else{
-		    	$(shareCont).css("margin-top","").slideUp();
-		    	$(shareList).css("margin-top","");
+		    	shareCont.css("margin-top","").slideUp();
+		    	shareList.css("margin-top","");
 		    }
 	    })
 	}
