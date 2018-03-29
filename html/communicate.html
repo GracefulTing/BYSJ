@@ -340,20 +340,31 @@ $(document).ready(function() {
 	   
 	    $(".lyBtn").unbind("click");
 	    $(".lyBtn").bind("click",function(){
-	    	if($(cont).css("display") == 'none'){
-	        	$(cont).slideDown('slow').show();
-	    	}else{
-	    		$(cont).hide();
-	    	}
+	    	alert(1);
+	    	$(cont).slideToggle();
+	    	// if($(cont).css("display") == 'none'){
+	     //    	$(cont).slideDown('slow').show();
+	    	// }else{
+	    	// 	$(cont).hide();
+	    	// }
 	    })
 
 	    $(".shareImg").unbind("click");
 	    $(".shareImg").bind("click",function(){
+	    	alert(2)
+	    	// $(shareCont).toggle();
+	    	// if($(shareCont).css("display") == 'none'){
+	    	// 	$(shareCont).css("margin-top","");
+		    // 	$(shareList).css("margin-top","");
+	    	// }else{
+	    	// 	$(shareCont).css("margin-top","10px");
+		    // 	$(shareList).css("margin-top","50px");
+	    	// }
 	    	if($(shareCont).css("display") == 'none'){
-		        $(shareCont).css("margin-top","10px").slideDown().show();
+		        $(shareCont).css("margin-top","10px").slideDown();
 		        $(shareList).css("margin-top","50px");
 		    }else{
-		    	$(shareCont).css("margin-top","").hide();
+		    	$(shareCont).css("margin-top","").slideUp();
 		    	$(shareList).css("margin-top","");
 		    }
 	    })
