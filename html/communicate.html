@@ -23,10 +23,16 @@
 		<div class="headLogo">
 			<a href="" class="logo logo_caipu" title=''></a>
 			<a href="" class="jl-logo">交流</a>
-			<!-- <div class="person">
-           	 	<a href="log.html"><div class="login">登录</div></a> | 
-            	<a href="reg.html"><div class="reg">注册</div></a>
-        	</div> -->
+			<div class="search">
+		      	<form action="http://www.baidu.com/baidu">
+		        	<input type=text name=word placeholder="请输入关键字" class='keyInp'>
+		        	<input type="submit" value="Baidu搜索" class="btn">
+		        	<input name=tn type=hidden value="bds">
+		        	<input name=cl type=hidden value="3">
+		        	<input name=ct type=hidden value="2097152">
+		        	<input name=si type=hidden value="http://so.cnys.com/cse/search?s=308982725782291017&entry=1&q=">
+		      	</form>
+		    </div>
 		</div>
 	    <ul class="tabs headMenu">
 			<!-- <li><a href="#" title="人群养生" class='cp'>人群养生</a></li> -->
@@ -258,6 +264,17 @@
 
 <script type="text/javascript">  
 $(document).ready(function() {  
+	function baidusearch () {
+        var wd=document.getElementsByName("wd")[0].value;
+        var link="http://www.baidu.com/s?si=www.williamlong.info&cl=3&ct=2097152&tn=baidulocal&word="+wd;
+        window.open(link); 
+    }
+    $(".search .btn").click(function(){
+    	if($(".search .keyInp").val() == ''){
+    		alert('请输入关键字!');
+    		return false;
+    	}
+    })
   
     //Default Action  
     $(".tab_content").hide(); //Hide all content  
