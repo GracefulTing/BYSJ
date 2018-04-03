@@ -160,7 +160,7 @@
 			</div>
 			<div class="liuyan" id="liuyan">
 			    <h1>留言板</h1>
-			    <img src="img/l2.png" alt="" style="width:26px;height:26px;float:right;margin-right:16px;margin-top: -35px;cursor: pointer;" class="lyBtn">
+			    <img src="img/l2.png" alt="" style="width:26px;height:26px;float:right;margin-right:16px;margin-top: -32px;cursor: pointer;" class="lyBtn">
 			    <iframe src="liuyan.html" frameborder="0" width="610" height="500" scrolling="no" id="iframe_liuyan" name="iframe_liuyan"></iframe>
 			</div>
 			<!-- 分享 -->
@@ -349,7 +349,8 @@ $(document).ready(function() {
 	    $(".lyBtn").unbind("click");
 	    $(".lyBtn").bind("click",function(){
 	    	// alert(1);
-	    	cont.slideToggle();
+	    	$(window.frames['iframe_liuyan'].document).find(".lyCon").toggle(600);
+	    	// $(cont).toggle(500);
 	    	// if($(cont).css("display") == 'none'){
 	     //    	$(cont).slideDown('slow').show();
 	    	// }else{
@@ -368,12 +369,19 @@ $(document).ready(function() {
 	    	// 	$(shareCont).css("margin-top","10px");
 		    // 	$(shareList).css("margin-top","50px");
 	    	// }
-	    	if(shareCont.css("display") == 'none'){
-		        shareCont.css("margin-top","10px").slideDown();
-		        shareList.css("margin-top","50px");
+	    	// if(shareCont.css("display") == 'none'){
+		    //     shareCont.css("margin-top","10px").slideDown();
+		    //     shareList.css("margin-top","50px");
+		    // }else{
+		    // 	shareCont.css("margin-top","").slideUp();
+		    // 	shareList.css("margin-top","");
+		    // }
+		    if($(window.frames['iframe_share'].document).find(".share").css("display") == 'none'){
+		    	$(window.frames['iframe_share'].document).find(".share").css("margin-top","10px").slideDown();
+		    	$(window.frames['iframe_share'].document).find("#list").css("margin-top","50px");
 		    }else{
-		    	shareCont.css("margin-top","").slideUp();
-		    	shareList.css("margin-top","");
+		    	$(window.frames['iframe_share'].document).find(".share").css("margin-top","").slideUp();
+		    	$(window.frames['iframe_share'].document).find("#list").css("margin-top","");
 		    }
 	    })
 	}
