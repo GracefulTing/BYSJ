@@ -30,16 +30,6 @@
 
                         </div>
                     </div>
-                   <!--  <form action="http://www.baidu.com/baidu">
-                        <div class="wyinput-group">
-                            <input type=text name=word placeholder="请输入关键字">
-                            <input type="submit" value="搜索">
-                            <input name=tn type=hidden value="bds">
-                            <input name=cl type=hidden value="3">
-                            <input name=ct type=hidden value="2097152">
-                            <input name=si type=hidden value="http://so.cnys.com/cse/search?s=308982725782291017&entry=1&q=">
-                        </div>
-                    </form> -->
                 </div>
                 <!-- 图标搜索登录注册 -->
                 <a class="login" href="log.html">登录</a><a class='line'> |</a>
@@ -543,6 +533,44 @@
             window.pageYOffset = 0;
         }
     }
+
+    $(".login").click(function(){
+        // alert('这是首页的登录按钮！');
+        sessionStorage.setItem('from','index');
+    })
+
+    $(".wyinput-btn").click(function(){
+        if($(".wyinput-group input").val() == ''){
+            alert('请输入要查询的关键字！');
+        }
+    })
+    $(".wyinput-group input").keydown(function(event) {
+        var value = $(".wyinput-group input").val();
+        if(event.keyCode == 13){
+            if(value == ''){
+                alert("请输入要查询的关键字！");
+            }
+            switch(value){
+                case '菜谱':
+                    window.location.href = "../html/caipu.html";
+                    break;
+                case '运动':
+                    window.location.href = "../html/sports.html";
+                    break;
+                case '心理':
+                    window.location.href = "../html/psychology.html";
+                    break;
+                case '交流':
+                    window.location.href = "../html/communicate.html";
+                    break;
+                default:
+                    alert('你所查询的没有结果！');
+                    break;
+            }
+        }
+        $(".wyinput-group input").val('');
+        $(".wyinput-group input").attr('placeholder',"请输入关键字");
+    });
 
     var getState = sessionStorage.getItem('state');
     var getSex = sessionStorage.getItem('sex');

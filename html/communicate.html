@@ -155,19 +155,19 @@
 			<!-- 表格 -->
 			<div class="con_table">
 				<h1>健康指数</h1>
-				<div class="msg">Sorry,您现在还未登录，请先<a href="./log.html" style="color:red;">登录</a>！</div>
+				<div class="msg">Sorry,您现在还未登录，请先<a href="./log.html" style="color:red;" class="logBtn">登录</a>！</div>
 				<iframe src="chart.html" frameborder="0" width="610" height="850" scrolling="no" id="iframe_chart" name="iframe_chart"></iframe>
 			</div>
 			<div class="liuyan" id="liuyan">
 			    <h1>留言板</h1>
 			    <img src="img/l2.png" alt="" style="width:26px;height:26px;float:right;margin-right:16px;margin-top: -32px;cursor: pointer;" class="lyBtn">
-			    <iframe src="liuyan.html" frameborder="0" width="610" height="500" scrolling="no" id="iframe_liuyan" name="iframe_liuyan"></iframe>
+			    <iframe src="liuyan.html" frameborder="0" width="620" height="500" scrolling="auto" id="iframe_liuyan" name="iframe_liuyan"></iframe>
 			</div>
 			<!-- 分享 -->
 			<div class="share">
 				<h1 style="padding-top: 5px;">My Circle</h1>
 				<img src="img/fcir.png" alt="" class="shareImg">
-			    <iframe src="share.html" frameborder="0" width="610" height="1200" scrolling="no" id="iframe_share" name="iframe_share"></iframe>
+			    <iframe src="share.html" frameborder="0" width="610" height="1200" scrolling="auto" id="iframe_share" name="iframe_share"></iframe>
 			</div>
 		</div>
 		<div class="con_right">
@@ -322,6 +322,11 @@ $(document).ready(function() {
 		}
 	}
 
+	$(".con_table .msg .logBtn").click(function(){
+		// alert("这是交流页面的登录按钮！");
+		sessionStorage.setItem('from','comm');
+	})
+
 	var getState = sessionStorage.getItem('state');
 	// var shareImage = $(window.frames['iframe_share'].document).find(".shareImg");
 	var shareCont = $(window.frames['iframe_share'].document).find(".share");
@@ -349,7 +354,7 @@ $(document).ready(function() {
 	    $(".lyBtn").unbind("click");
 	    $(".lyBtn").bind("click",function(){
 	    	// alert(1);
-	    	$(window.frames['iframe_liuyan'].document).find(".lyCon").toggle(600);
+	    	$(window.frames['iframe_liuyan'].document).find(".lyCon").toggle();
 	    	// $(cont).toggle(500);
 	    	// if($(cont).css("display") == 'none'){
 	     //    	$(cont).slideDown('slow').show();
