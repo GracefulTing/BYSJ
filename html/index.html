@@ -130,7 +130,7 @@
         <div class="gap15"></div>
         <div class="con1">
              <div class="con1_left">
-                <img src="./img/jiao.jpg" alt="">
+                <a href="http://www.cnys.com/zixun/77273_2.html" target="_blank"><img src="./img/jiao.jpg" alt=""></a>
                 <p>
                     <a href="http://www.cnys.com/zixun/77273_2.html" target="_blank">
                         <b>年轻姑娘崴伤脚后竟引发猝死！</b>
@@ -544,33 +544,6 @@
             alert('请输入要查询的关键字！');
         }
     })
-    $(".wyinput-group input").keydown(function(event) {
-        var value = $(".wyinput-group input").val();
-        if(event.keyCode == 13){
-            if(value == ''){
-                alert("请输入要查询的关键字！");
-            }
-            switch(value){
-                case '菜谱':
-                    window.location.href = "../html/caipu.html";
-                    break;
-                case '运动':
-                    window.location.href = "../html/sports.html";
-                    break;
-                case '心理':
-                    window.location.href = "../html/psychology.html";
-                    break;
-                case '交流':
-                    window.location.href = "../html/communicate.html";
-                    break;
-                default:
-                    alert('你所查询的没有结果！');
-                    break;
-            }
-        }
-        $(".wyinput-group input").val('');
-        $(".wyinput-group input").attr('placeholder',"请输入关键字");
-    });
 
     var getState = sessionStorage.getItem('state');
     var getSex = sessionStorage.getItem('sex');

@@ -51,7 +51,7 @@
             <p>2.昨晚睡眠质量怎么样?</p>
             <input type="radio" name="sleep" value="好" required="required">&nbsp; 好<br>
             <input type="radio" name="sleep" value="一般"> &nbsp;一般<br>
-            <input type="radio" name="sleep" value="糟糕"> &nbsp;失眠<br>
+            <input type="radio" name="sleep" value="失眠"> &nbsp;失眠<br>
         </div>
         <div class="label1">
             <p>3.今天的心情状态是如何的?</p>
@@ -90,20 +90,42 @@
                 $("input[name='per_data2']").val('4');
             }else if($("input[name='food']:checked").val() == '蛋白质'){
                 $("input[name='state']").val('良好');
-                $("input[name='per_data1']").val('94');
-                $("input[name='per_data2']").val('6');
+                $("input[name='per_data1']").val('92');
+                $("input[name='per_data2']").val('8');
             }else if($("input[name='food']:checked").val() == '肉类'){
                 $("input[name='state']").val('正常');
-                $("input[name='per_data1']").val('90');
-                $("input[name='per_data2']").val('10');
-            }else if($("input[name='food']:checked").val() == '汤类'){
-                $("input[name='state']").val('较好');
                 $("input[name='per_data1']").val('88');
                 $("input[name='per_data2']").val('12');
+            }else if($("input[name='food']:checked").val() == '汤类'){
+                $("input[name='state']").val('较好');
+                $("input[name='per_data1']").val('82');
+                $("input[name='per_data2']").val('18');
             }else{
                 $("input[name='state']").val('较好');
-                $("input[name='per_data1']").val('86');
-                $("input[name='per_data2']").val('14');
+                $("input[name='per_data1']").val('80');
+                $("input[name='per_data2']").val('20');
+            }  
+        }else if($("input[name='sleep']:checked").val() == '一般' && $("input[name='xinqing']:checked").val() == '一般'){
+            if($("input[name='food']:checked").val() == '蔬菜'){
+                $("input[name='state']").val('较好');
+                $("input[name='per_data1']").val('77');
+                $("input[name='per_data2']").val('23');
+            }else if($("input[name='food']:checked").val() == '蛋白质'){
+                $("input[name='state']").val('较好');
+                $("input[name='per_data1']").val('74');
+                $("input[name='per_data2']").val('26');
+            }else if($("input[name='food']:checked").val() == '肉类'){
+                $("input[name='state']").val('一般');
+                $("input[name='per_data1']").val('72');
+                $("input[name='per_data2']").val('28');
+            }else if($("input[name='food']:checked").val() == '汤类'){
+                $("input[name='state']").val('一般');
+                $("input[name='per_data1']").val('71');
+                $("input[name='per_data2']").val('29');
+            }else{
+                $("input[name='state']").val('一般');
+                $("input[name='per_data1']").val('70');
+                $("input[name='per_data2']").val('30');
             }  
         }else if($("input[name='sleep']:checked").val() == '失眠' && $("input[name='xinqing']:checked").val() == '糟糕'){ 
             if($("input[name='food']:checked").val() == '蔬菜'){
@@ -127,73 +149,8 @@
                 $("input[name='per_data1']").val('37');
                 $("input[name='per_data2']").val('63');
             }  
-        // }else if($("input[name='sleep']:checked").val() == '好' || $("input[name='xinqing']:checked").val() == '好' || $("input[name='sleep']:checked").val() == '一般' && $("input[name='xinqing']:checked").val() == '一般'){
-        //     if($("input[name='food']:checked").val() == '蔬菜'){
-        //         $("input[name='state']").val('较好');
-        //         $("input[name='per_data1']").val('84');
-        //         $("input[name='per_data2']").val('16');
-        //     }else if($("input[name='food']:checked").val() == '蛋白质'){
-        //         $("input[name='state']").val('较好');
-        //         $("input[name='per_data1']").val('82');
-        //         $("input[name='per_data2']").val('18');
-        //     }else if($("input[name='food']:checked").val() == '肉类'){
-        //         $("input[name='state']").val('一般');
-        //         $("input[name='per_data1']").val('80');
-        //         $("input[name='per_data2']").val('20');
-        //     }else if($("input[name='food']:checked").val() == '汤类'){
-        //         $("input[name='state']").val('一般');
-        //         $("input[name='per_data1']").val('81');
-        //         $("input[name='per_data2']").val('19');
-        //     }else{
-        //         $("input[name='state']").val('一般');
-        //         $("input[name='per_data1']").val('78');
-        //         $("input[name='per_data2']").val('22');
-        //     }  
-        // }else if($("input[name='sleep']:checked").val() == '失眠' || $("input[name='xinqing']:checked").val() == '糟糕'){
-        //     $("input[name='state']").val('较差');
-        //     if($("input[name='food']:checked").val() == '蔬菜'){
-        //         $("input[name='state']").val('较好');
-        //         $("input[name='per_data1']").val('77');
-        //         $("input[name='per_data2']").val('23');
-        //     }else if($("input[name='food']:checked").val() == '蛋白质'){
-        //         $("input[name='state']").val('较好');
-        //         $("input[name='per_data1']").val('75');
-        //         $("input[name='per_data2']").val('25');
-        //     }else if($("input[name='food']:checked").val() == '肉类'){
-        //         $("input[name='state']").val('一般');
-        //         $("input[name='per_data1']").val('72');
-        //         $("input[name='per_data2']").val('28');
-        //     }else if($("input[name='food']:checked").val() == '汤类'){
-        //         $("input[name='state']").val('一般');
-        //         $("input[name='per_data1']").val('70');
-        //         $("input[name='per_data2']").val('30');
-        //     }else{
-        //         $("input[name='state']").val('一般');
-        //         $("input[name='per_data1']").val('68');
-        //         $("input[name='per_data2']").val('32');
-        //     }  
         }else{
-             if($("input[name='food']:checked").val() == '蔬菜'){
-                $("input[name='state']").val('较好');
-                $("input[name='per_data1']").val('66');
-                $("input[name='per_data2']").val('34');
-            }else if($("input[name='food']:checked").val() == '蛋白质'){
-                $("input[name='state']").val('较好');
-                $("input[name='per_data1']").val('65');
-                $("input[name='per_data2']").val('35');
-            }else if($("input[name='food']:checked").val() == '肉类'){
-                $("input[name='state']").val('一般');
-                $("input[name='per_data1']").val('62');
-                $("input[name='per_data2']").val('38');
-            }else if($("input[name='food']:checked").val() == '汤类'){
-                $("input[name='state']").val('一般');
-                $("input[name='per_data1']").val('60');
-                $("input[name='per_data2']").val('40');
-            }else{
-                $("input[name='state']").val('一般');
-                $("input[name='per_data1']").val('58');
-                $("input[name='per_data2']").val('42');
-            }  
+            $("input[name='state']").val('一般');
         }
     })
 </script>
