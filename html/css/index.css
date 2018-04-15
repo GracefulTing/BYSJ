@@ -631,7 +631,7 @@ dt,dd{
 }
 .wyInput .wyinput-drop {
   position: absolute;
-  top: 40px;
+  top: 30px;
   z-index: 1000;
   background: #F2F2F2;
   border: 1px solid #EEE4D8;

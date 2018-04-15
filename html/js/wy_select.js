@@ -4,7 +4,7 @@
             if(!isValid(options)) return this;
             var $Id = $(this);
             var last;
-            $Id.find(".wyinput-drop").css("width",$(".wyinput-group input").outerWidth()+"px").hide();
+            $Id.find(".wyinput-drop").css("width",$(".wyinput-group input").outerWidth() - 12 +"px").hide();
             $Id.find(".wyinput-group input").keyup(function(event){
                 last = event.timeStamp;
                 setTimeout(function(){    //设时延迟0.5s执行
