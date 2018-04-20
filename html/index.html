@@ -21,7 +21,7 @@
             </div>
             <div class="person">
                 <div class="search">
-                    <div class="wyInput" id="myInput">
+                    <!-- <div class="wyInput" id="myInput">
                         <div class="wyinput-group">
                             <input type="text" placeholder="请输入关键字">
                             <a href="#" class="wyinput-btn">搜 索</a> 
@@ -29,6 +29,14 @@
                         <div class="wyinput-drop">
 
                         </div>
+                    </div> -->
+                    <div class="choose-screening wyInput" id="myInput">
+                        <div class="choose-screening-input wyinput-group">
+                            <input name="searchKey" type="text" id="chooseKey" placeholder="请输入关键字">
+                            <a class="wyinput-btn" style="cursor: pointer;">搜 索</a> 
+                            <div class="auto-screening auto-hidden" id="autoScreening">
+                            </div>
+                        </div>              
                     </div>
                 </div>
                 <!-- 图标搜索登录注册 -->
@@ -493,12 +501,7 @@
 <script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script>
 <script src="./js/wy_select.js"></script>
 <script>
-    //  function baidusearch () {
-    //     var wd=document.getElementsByName("wd")[0].value;
-    //     var link="http://www.baidu.com/s?si=www.williamlong.info&cl=3&ct=2097152&tn=baidulocal&word="+wd;
-    //     window.open(link); 
-    // }
-    $("#myInput").wy_inselect([{name:'菜谱'},{name:'运动'},{name:'心理'},{name:'交流'}]);
+    // $("#myInput").wy_inselect([{name:'菜谱'},{name:'运动'},{name:'心理'},{name:'交流'}]);
 
     $.ajax({
         url:'../php/code/indexcaipu.php',
@@ -539,11 +542,37 @@
         sessionStorage.setItem('from','index');
     })
 
+    // $(".wyinput-btn").click(function(){
+    //     if($(".wyinput-group input").val() == ''){
+    //         alert('请输入要查询的关键字！');
+    //     }
+    // })
+
     $(".wyinput-btn").click(function(){
-        if($(".wyinput-group input").val() == ''){
-            alert('请输入要查询的关键字！');
+        var value = $(".wyinput-group input").val();
+        switch(value){
+            case '菜谱':
+                window.location.href = "../html/caipu.html";
+                break;
+            case '运动':
+                window.location.href = "../html/sports.html";
+                break;
+            case '心理':
+                window.location.href = "../html/psychology.html";
+                break;
+            case '交流':
+                window.location.href = "../html/communicate.html";
+                break;
+            case '':
+                alert("请输入要查询的关键字！");
+                break;
+            default:
+                alert('你所查询的没有结果！');
+                break;
         }
-    })
+        $(".wyinput-group input").val('');
+        $(".wyinput-group input").attr('placeholder',"请输入关键字");
+    }) 
 
     var getState = sessionStorage.getItem('state');
     var getSex = sessionStorage.getItem('sex');

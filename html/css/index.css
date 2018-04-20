@@ -710,3 +710,24 @@ dt,dd{
     padding:5px 10px;
     cursor: pointer;
 }
+.auto-screening{
+    width:175px;
+    top:30px;
+    position: absolute;
+    z-index: 9;
+    overflow: hidden;
+    border: 1px solid #cccccc;
+    border-bottom: 0;
+    border-top: 0;
+}
+.auto-screening-prompt{
+    width: 200px;
+    height: 30px;
+    line-height: 30px;
+    border-bottom: 1px solid #cccccc;
+    background: #ffffff;
+    padding: 0 10px;
+}
+.auto-screening-prompt:hover{
+    background: #cccccc;
+}
