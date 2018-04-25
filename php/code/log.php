@@ -33,6 +33,8 @@ else if($password == ""){
         echo"<script type='text/javascript'>alert('登陆成功');
         if(sessionStorage.getItem('from') == 'index'){
             window.location.href='../../html/index.html';
+        }else if(sessionStorage.getItem('from') == 'reg'){
+            window.location.href='../../html/index.html';
         }else{
             window.location.href='../../html/communicate.html';
         }
