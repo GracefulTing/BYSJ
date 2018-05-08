@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <title></title>
      <link rel="stylesheet" href="./css/style.css">
-    <!-- <script type="text/javascript" src="./js/demo.js"></script> -->
+    <script type="text/javascript" src="./js/demo.js"></script>
 </head>
 <body>
  <!--   <h1>My Circle</h1>
@@ -80,7 +80,7 @@
                     </div>
                 </div>
                 <div class="text-box">
-                    <textarea class="comment" autocomplete="off">评论…</textarea>
+                    <textarea class="comment huifu_com" autocomplete="off">评论…</textarea>
                     <button class="btn ">回 复</button>
                     <span class="word"><span class="length">0</span>/140</span>
                 </div>
@@ -164,76 +164,15 @@
           $("#list").prepend(contentDiv);    
           cliFun();
 
+    }
+    // cliFun();
+    function cliFun(){
           // $(".closeBtn").unbind("click");
           // $(".closeBtn").bind("click",function(){
           //     $(this).parent().remove();
           // })
-          // var textCon = $(".comment");
-          // textCon.unbind("focus");
-          // textCon.bind("focus",function(){
-          //     $(this).val('');
-          //     $(this).parent().addClass("text-box-on");
-          //     $(this).keyup();
-          // })
-          // textCon.unbind("blur");
-          // textCon.bind("blur",function(){
-          //     if($(this).val() == ''){
-          //       $(this).val("评论…");
-          //       $(this).parent().removeClass("text-box-on");
-          //     }
-          // })
-          // textCon.unbind("keyup");
-          // textCon.bind("keyup",function(){
-          //     var val = $(this).val();
-          //     var len = val.length;
-          //     var els = $(this).parent().children();
-          //     var btn = els[1];
-          //     var word = els[2];
-          //     if(len <= 0 || len > 140){
-          //       $(btn).addClass("btn-off");
-          //     }else{
-          //       $(btn).removeClass("btn-off");
-          //     }
-          //     $(word).html(len + '/140');
-          // })
-          // $(".btn").unbind("click");
-          // $(".btn").bind("click",function(){
-          //     var val = $(this).parent().find(".comment").val();
-          //     // console.log(val);
-          //     var commentBox = $("<div class='comment-box clearfix' user='self'><img class=myhead src='./img/my.jpg' /><div class='comment-content'><p class='comment-text'><span class='user'>我：</span>" + val + "</p><p class='comment-time'>" + getCurrentTime() +"<a href='javascript:;' class='comment-praise' total='0' my='0' style=''>赞</a><a href=javascript:; class='comment-operate'>删除</a></p></div>");
-          //     $(this).parent().parent().find(".comment-list").append(commentBox);
-          //     $(".comment").val('');
-          //     $(".comment").blur();
-          //     $(".comment-operate").unbind("click");
-          //     $(".comment-operate").bind("click",function(){
-          //       $(this).parent().parent().parent().remove();
-          //     })
-          //     $(".comment-praise").unbind("click");
-          //     $(".comment-praise").bind("click",function(){
-          //         if($(this).text() == '赞'){
-          //             $(this).text('1 取消赞');
-          //         }else{
-          //             $(this).text('赞');
-          //         }
-          //     })
-              
-          // })
-          // $(".praise").unbind("click");
-          // $(".praise").bind("click",function(){
-          //   if($(this).text() == '赞'){
-          //     $(this).text("取消赞");
-          //     $(this).parent().parent().find(".praises-total").css("display","block").text("我觉得很赞");
-          //   }else{
-          //     $(this).text('赞');
-          //     $(this).parent().parent().find(".praises-total").css("display","none");
-          //   }
-          // })
-
-    }
-    cliFun();
-    function cliFun(){
-       $(".closeBtn").unbind("click");
-          $(".closeBtn").bind("click",function(){
+          $(".close").unbind("click");
+          $(".close").bind("click",function(){
               $(this).parent().remove();
           })
           var textCon = $(".comment");
@@ -274,7 +213,13 @@
               $(".comment").blur();
               $(".comment-operate").unbind("click");
               $(".comment-operate").bind("click",function(){
-                $(this).parent().parent().parent().remove();
+                if($(this).text() == '回复'){
+                  $(".huifu_com").focus();
+                  $(".huifu_com").val("回复" + user);
+                  $(".huifu_com").onkeyup();
+                }else{
+                  $(this).parent().parent().parent().remove();
+                }
               })
               $(".comment-praise").unbind("click");
               $(".comment-praise").bind("click",function(){

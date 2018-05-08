@@ -2,8 +2,8 @@
 $uid = $_POST['uid'];
 $gender= $_POST['gender'];
 $old= $_POST['old'];
-$psw1= $_POST['psw1'];
-$psw2= $_POST['psw2'];
+$psw1= md5($_POST['psw1']);
+$psw2= md5($_POST['psw2']);
 $email = $_POST['email'];
 $tel = $_POST['tel'];
 header("content-type:text/html;charset=utf-8");

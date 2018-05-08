@@ -1,6 +1,6 @@
 <?php 
 $username = $_POST['username'];
-$password = $_POST['password'];
+$password = md5($_POST['password']);
 header("content-type:text/html;charset=utf-8");
 if($username == "")  
 {  

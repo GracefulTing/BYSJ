@@ -8,18 +8,41 @@ window.onload = function () {
     var timer;
 
     //格式化日期
-    function formateDate(date) {
-        var y = date.getFullYear();
-        var m = date.getMonth() + 1;
-        var d = date.getDate();
-        var h = date.getHours();
-        var mi = date.getMinutes();
-        m = m > 9 ? m : '0' + m;
-        d = d > 9 ? d : '0' + d;
-        h = d > 9 ? h : '0' + h;
-        return y + '-' + m + '-' + d + ' ' + h + ':' + mi;
-    }
+    // function formateDate(date) {
+    //     var y = date.getFullYear();
+    //     var m = date.getMonth() + 1;
+    //     var d = date.getDate();
+    //     var h = date.getHours();
+    //     var mi = date.getMinutes();
+    //     m = m > 9 ? m : '0' + m;
+    //     d = d > 9 ? d : '0' + d;
+    //     h = d > 9 ? h : '0' + h;
+    //     return y + '-' + m + '-' + d + ' ' + h + ':' + mi;
+    // }
 
+    function getCurrentTime(){
+       var today=new Date();
+       var y=today.getFullYear();
+       var mh=today.getMonth();
+       mh++;
+       var d=today.getDate();
+       var h=today.getHours();
+       var m=today.getMinutes();
+       var s=today.getSeconds();
+       mh=checkTime(mh)
+       d=checkTime(d)
+       h=checkTime(h)
+       m=checkTime(m)
+       s=checkTime(s)
+       var time=y+"-"+mh+"-"+d+"  "+h+":"+m+":"+s;
+       return time;
+   }
+   function checkTime(i){
+       if(i<10)
+         i="0"+i
+       return i
+    }
+    
     //删除节点
     function removeNode(node) {
         node.parentNode.removeChild(node);
@@ -66,7 +89,7 @@ window.onload = function () {
                 '<div class="comment-content">' +
                 '<p class="comment-text"><span class="user">我：</span>' + textarea.value + '</p>' +
                 '<p class="comment-time">' +
-                formateDate(new Date()) +
+                getCurrentTime(new Date()) +
                 '<a href="javascript:;" class="comment-praise" total="0" my="0" style="">赞</a>' +
                 '<a href="javascript:;" class="comment-operate">删除</a>' +
                 '</p>' +
